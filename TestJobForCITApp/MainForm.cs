@@ -26,7 +26,8 @@ namespace TestJobForCITApp
         private void buttonAddTable_Click(object sender, EventArgs e)
         {
             DataTable newDataTable = new DataTable();
-            newDataTable.TableName = InsertName("Введите имя таблицы");
+            newDataTable.TableName = InsertName(
+                "Введите имя таблицы");
             _listDataTables.Add(newDataTable);
             listBoxTables_SelectedIndexChanged(sender, e);
             listBoxTables.SelectedIndex = listBoxTables.Items.Count - 1;
@@ -36,7 +37,9 @@ namespace TestJobForCITApp
 
         private void listBoxTables_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = _listDataTables[listBoxTables.SelectedIndex];
+            dataGridView1.DataSource = null;
+            if (_listDataTables.Count != 0)
+                dataGridView1.DataSource = _listDataTables[listBoxTables.SelectedIndex];
         }
 
         private void новыйСтолбецToolStripMenuItem_Click(object sender, EventArgs e)
@@ -59,8 +62,17 @@ namespace TestJobForCITApp
 
         private void buttonDeleteTable_Click(object sender, EventArgs e)
         {
-            _listDataTables.Remove(_listDataTables[listBoxTables.SelectedIndex]);
-            listBoxTables_SelectedIndexChanged(sender, e);
+            if (MessageBox.Show("Вы действительно хотите удалить выбранную таблицу?", "Внимание", MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            {
+                _listDataTables.Remove(_listDataTables[listBoxTables.SelectedIndex]);
+                listBoxTables_SelectedIndexChanged(sender, e);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

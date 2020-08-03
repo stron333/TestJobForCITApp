@@ -60,6 +60,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.menuStripForTable = new System.Windows.Forms.MenuStrip();
             this.новыйСтолбецToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -299,7 +300,7 @@
             // 
             // buttonDeleteTable
             // 
-            this.buttonDeleteTable.Location = new System.Drawing.Point(3, 231);
+            this.buttonDeleteTable.Location = new System.Drawing.Point(3, 112);
             this.buttonDeleteTable.Name = "buttonDeleteTable";
             this.buttonDeleteTable.Size = new System.Drawing.Size(121, 23);
             this.buttonDeleteTable.TabIndex = 6;
@@ -318,6 +319,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.listBoxTables);
             this.panel2.Controls.Add(this.buttonAddTable);
@@ -353,11 +355,21 @@
             this.новыйСтолбецToolStripMenuItem.Text = "Новый столбец";
             this.новыйСтолбецToolStripMenuItem.Click += new System.EventHandler(this.новыйСтолбецToolStripMenuItem_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 37);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(121, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Переименовать";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1243, 922);
+            this.ClientSize = new System.Drawing.Size(1243, 502);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStripMain);
@@ -413,6 +425,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.MenuStrip menuStripForTable;
         private System.Windows.Forms.ToolStripMenuItem новыйСтолбецToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
 
