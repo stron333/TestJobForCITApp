@@ -14,55 +14,53 @@ namespace TestJobForCITApp
 {
     public partial class FormMain : Form
     {
-        private BindingList<DataTable> _listDataSets;
-        public delegate string DelegeteGetName(string s);
+        private BindingList<DataTable> _listDataTables;
         public FormMain()
         {
             InitializeComponent();
-            _listDataSets = new BindingList<DataTable>();
-            listBoxTables.DataSource = _listDataSets;
-
-            Application.EnableVisualStyles();
-
-
+            _listDataTables = new BindingList<DataTable>();
+            listBoxTables.DataSource = _listDataTables;
+            listBoxTables.DisplayMember = "TableName";
         }
 
         private void buttonAddTable_Click(object sender, EventArgs e)
         {
-
-            DataTable dataTable = new DataTable();
-            _listDataSets.Add(dataTable);
+            DataTable newDataTable = new DataTable();
+            newDataTable.TableName = InsertName("Введите имя таблицы");
+            _listDataTables.Add(newDataTable);
+            listBoxTables_SelectedIndexChanged(sender, e);
+            listBoxTables.SelectedIndex = listBoxTables.Items.Count - 1;
         }
 
         
 
         private void listBoxTables_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = _listDataSets[listBoxTables.SelectedIndex];
+            dataGridView1.DataSource = _listDataTables[listBoxTables.SelectedIndex];
         }
 
         private void новыйСтолбецToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _listDataSets[listBoxTables.SelectedIndex].Columns.Add("New");
-            dataGridView1.Refresh();
+            _listDataTables[listBoxTables.SelectedIndex].
+                Columns.Add(
+                    InsertName("Введите имя столбца"
+                    ));
+            //dataGridView1.Refresh();
         }
 
-        private string InsertName()
+        private string InsertName(string TextOnForm)
         {
-            this.Enabled = false;
-            
-            FormInsertName formInsertName = new FormInsertName(GetName);
             string name = "";
-            formInsertName.FormClosing += delegate
-            {
-                name = formInsertName.textBox1.Text; this.Enabled = true;
-            };
+            FormInsertName formInsertName = new FormInsertName(TextOnForm);
+            formInsertName.Closing += delegate { name = formInsertName.textBox1.Text; };
+            formInsertName.ShowDialog();
             return name;
         }
 
-        private string GetName(string name)
+        private void buttonDeleteTable_Click(object sender, EventArgs e)
         {
-            return name;
+            _listDataTables.Remove(_listDataTables[listBoxTables.SelectedIndex]);
+            listBoxTables_SelectedIndexChanged(sender, e);
         }
     }
 }

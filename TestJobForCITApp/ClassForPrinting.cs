@@ -11,5 +11,9 @@ namespace TestJobForCITApp
     {
         public List<string> ListTextFields { get; set; }
         public List<DataSet> ListTables { get; set; }
+        public override string ToString()
+        {
+            return base.ToString();
+        }
     }
 }

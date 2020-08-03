@@ -305,6 +305,7 @@
             this.buttonDeleteTable.TabIndex = 6;
             this.buttonDeleteTable.Text = "Удалить таблицу";
             this.buttonDeleteTable.UseVisualStyleBackColor = true;
+            this.buttonDeleteTable.Click += new System.EventHandler(this.buttonDeleteTable_Click);
             // 
             // listBoxTables
             // 
