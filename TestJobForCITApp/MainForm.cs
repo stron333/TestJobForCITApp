@@ -40,6 +40,19 @@ namespace TestJobForCITApp
             dataGridView1.DataSource = null;
             if (_listDataTables.Count != 0)
                 dataGridView1.DataSource = _listDataTables[listBoxTables.SelectedIndex];
+            if (listBoxTables.SelectedIndex >= 0)
+            {
+                buttonRenameTable.Enabled = true;
+                buttonDeleteTable.Enabled = true;
+                menuStripForTable.Enabled = true;
+            }
+            else
+            {
+                buttonRenameTable.Enabled = false;
+                buttonDeleteTable.Enabled = false;
+                menuStripForTable.Enabled = false;
+
+            }
         }
 
         private void новыйСтолбецToolStripMenuItem_Click(object sender, EventArgs e)
@@ -48,7 +61,6 @@ namespace TestJobForCITApp
                 Columns.Add(
                     InsertName("Введите имя столбца"
                     ));
-            //dataGridView1.Refresh();
         }
 
         private string InsertName(string TextOnForm)
@@ -70,9 +82,23 @@ namespace TestJobForCITApp
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonRenameTable_Click(object sender, EventArgs e)
         {
+            _listDataTables[listBoxTables.SelectedIndex].
+                TableName = InsertName("Введите имя таблицы");
+            DataTable newDataTable = new DataTable();
+            _listDataTables.Add(newDataTable);
+            _listDataTables.Remove(newDataTable);
+        
+        }
 
+        private void переименоватьСтолбецToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var SelectedCellIndex = dataGridView1.SelectedCells[0].ColumnIndex;
+            _listDataTables[listBoxTables.SelectedIndex].Columns[SelectedCellIndex].ColumnName =
+                InsertName("Введите имя столбца");
         }
     }
+
+    
 }

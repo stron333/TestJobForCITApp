@@ -57,10 +57,14 @@
             this.buttonDeleteTable = new System.Windows.Forms.Button();
             this.listBoxTables = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonRenameTable = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.menuStripForTable = new System.Windows.Forms.MenuStrip();
             this.новыйСтолбецToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
+            this.переименоватьСтолбецToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.столбецToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.строкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -300,6 +304,7 @@
             // 
             // buttonDeleteTable
             // 
+            this.buttonDeleteTable.Enabled = false;
             this.buttonDeleteTable.Location = new System.Drawing.Point(3, 112);
             this.buttonDeleteTable.Name = "buttonDeleteTable";
             this.buttonDeleteTable.Size = new System.Drawing.Size(121, 23);
@@ -319,7 +324,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.buttonRenameTable);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.listBoxTables);
             this.panel2.Controls.Add(this.buttonAddTable);
@@ -328,6 +333,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1044, 266);
             this.panel2.TabIndex = 8;
+            // 
+            // buttonRenameTable
+            // 
+            this.buttonRenameTable.Enabled = false;
+            this.buttonRenameTable.Location = new System.Drawing.Point(3, 37);
+            this.buttonRenameTable.Name = "buttonRenameTable";
+            this.buttonRenameTable.Size = new System.Drawing.Size(121, 23);
+            this.buttonRenameTable.TabIndex = 10;
+            this.buttonRenameTable.Text = "Переименовать";
+            this.buttonRenameTable.UseVisualStyleBackColor = true;
+            this.buttonRenameTable.Click += new System.EventHandler(this.buttonRenameTable_Click);
             // 
             // panel3
             // 
@@ -340,8 +356,11 @@
             // 
             // menuStripForTable
             // 
+            this.menuStripForTable.Enabled = false;
             this.menuStripForTable.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.новыйСтолбецToolStripMenuItem});
+            this.новыйСтолбецToolStripMenuItem,
+            this.переименоватьСтолбецToolStripMenuItem,
+            this.удалитьToolStripMenuItem});
             this.menuStripForTable.Location = new System.Drawing.Point(0, 0);
             this.menuStripForTable.Name = "menuStripForTable";
             this.menuStripForTable.Size = new System.Drawing.Size(743, 24);
@@ -355,15 +374,33 @@
             this.новыйСтолбецToolStripMenuItem.Text = "Новый столбец";
             this.новыйСтолбецToolStripMenuItem.Click += new System.EventHandler(this.новыйСтолбецToolStripMenuItem_Click);
             // 
-            // button1
+            // переименоватьСтолбецToolStripMenuItem
             // 
-            this.button1.Location = new System.Drawing.Point(3, 37);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Переименовать";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.переименоватьСтолбецToolStripMenuItem.Name = "переименоватьСтолбецToolStripMenuItem";
+            this.переименоватьСтолбецToolStripMenuItem.Size = new System.Drawing.Size(154, 20);
+            this.переименоватьСтолбецToolStripMenuItem.Text = "Переименовать столбец";
+            this.переименоватьСтолбецToolStripMenuItem.Click += new System.EventHandler(this.переименоватьСтолбецToolStripMenuItem_Click);
+            // 
+            // удалитьToolStripMenuItem
+            // 
+            this.удалитьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.столбецToolStripMenuItem,
+            this.строкуToolStripMenuItem});
+            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
+            this.удалитьToolStripMenuItem.Text = "Удалить";
+            // 
+            // столбецToolStripMenuItem
+            // 
+            this.столбецToolStripMenuItem.Name = "столбецToolStripMenuItem";
+            this.столбецToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.столбецToolStripMenuItem.Text = "Столбец";
+            // 
+            // строкуToolStripMenuItem
+            // 
+            this.строкуToolStripMenuItem.Name = "строкуToolStripMenuItem";
+            this.строкуToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.строкуToolStripMenuItem.Text = "Строку";
             // 
             // FormMain
             // 
@@ -425,7 +462,11 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.MenuStrip menuStripForTable;
         private System.Windows.Forms.ToolStripMenuItem новыйСтолбецToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonRenameTable;
+        private System.Windows.Forms.ToolStripMenuItem переименоватьСтолбецToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem столбецToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem строкуToolStripMenuItem;
     }
 }
 
