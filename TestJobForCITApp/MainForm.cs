@@ -57,10 +57,21 @@ namespace TestJobForCITApp
 
         private void новыйСтолбецToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _listDataTables[listBoxTables.SelectedIndex].
-                Columns.Add(
-                    InsertName("Введите имя столбца"
-                    ));
+            try
+            {
+                _listDataTables[listBoxTables.SelectedIndex].
+                    Columns.Add(
+                        InsertName("Введите имя столбца"
+                        ));
+            }
+            catch (DuplicateNameException exception)
+            {
+                MessageBox.Show("Столбец с таким именем уже существует",
+                    "Ошибка",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            
         }
 
         private string InsertName(string TextOnForm)
@@ -86,17 +97,75 @@ namespace TestJobForCITApp
         {
             _listDataTables[listBoxTables.SelectedIndex].
                 TableName = InsertName("Введите имя таблицы");
+
             DataTable newDataTable = new DataTable();
             _listDataTables.Add(newDataTable);
             _listDataTables.Remove(newDataTable);
-        
         }
 
         private void переименоватьСтолбецToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var SelectedCellIndex = dataGridView1.SelectedCells[0].ColumnIndex;
-            _listDataTables[listBoxTables.SelectedIndex].Columns[SelectedCellIndex].ColumnName =
-                InsertName("Введите имя столбца");
+            try
+            {
+                int SelectedCellIndex = dataGridView1.SelectedCells[0].ColumnIndex;
+                _listDataTables[listBoxTables.SelectedIndex].Columns[SelectedCellIndex].ColumnName =
+                    InsertName("Введите имя столбца");
+            }
+            catch (ArgumentException exception)
+            {
+                MessageBox.Show("Неверное имя для столбца",
+                    "Ошибка",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+            catch (DuplicateNameException exception)
+            {
+                MessageBox.Show("Столбец с таким именем уже существует", 
+                    "Ошибка",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
+
+
+        }
+
+        private void dataGridView1_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            переименоватьСтолбецToolStripMenuItem.Enabled = false;
+            удалитьToolStripMenuItem.Enabled = false;
+        }
+
+        private void dataGridView1_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            переименоватьСтолбецToolStripMenuItem.Enabled = true;
+            удалитьToolStripMenuItem.Enabled = true;
+        }
+
+        private void удалитьстолбецToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Вы действительно хотите удалить выбранный столбец?", "Внимание",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            {
+                int SelectedCellIndex = dataGridView1.SelectedCells[0].ColumnIndex;
+                var SelectedCell = _listDataTables[listBoxTables.SelectedIndex].Columns[SelectedCellIndex];
+                _listDataTables[listBoxTables.SelectedIndex].Columns.Remove(SelectedCell);
+            }
+        }
+
+        private void удалитьстрокуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Вы действительно хотите удалить выбранную строку?", "Внимание",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+            {
+                int SelectedRowIndex = dataGridView1.SelectedCells[0].RowIndex;
+                if (SelectedRowIndex < _listDataTables[listBoxTables.SelectedIndex].Rows.Count)
+                {
+                    var SelectedRow = _listDataTables[listBoxTables.SelectedIndex].Rows[SelectedRowIndex];
+                    _listDataTables[listBoxTables.SelectedIndex].Rows.Remove(SelectedRow);
+                }
+            }
         }
     }
 

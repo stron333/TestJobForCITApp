@@ -63,8 +63,8 @@
             this.новыйСтолбецToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.переименоватьСтолбецToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.столбецToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.строкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьстолбецToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьстрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -91,6 +91,7 @@
             // 
             // panel1
             // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.textBox10);
             this.panel1.Controls.Add(this.label8);
@@ -291,6 +292,8 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(743, 232);
             this.dataGridView1.TabIndex = 4;
+            this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
+            this.dataGridView1.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellLeave);
             // 
             // buttonAddTable
             // 
@@ -324,6 +327,7 @@
             // 
             // panel2
             // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.buttonRenameTable);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.listBoxTables);
@@ -376,6 +380,7 @@
             // 
             // переименоватьСтолбецToolStripMenuItem
             // 
+            this.переименоватьСтолбецToolStripMenuItem.Enabled = false;
             this.переименоватьСтолбецToolStripMenuItem.Name = "переименоватьСтолбецToolStripMenuItem";
             this.переименоватьСтолбецToolStripMenuItem.Size = new System.Drawing.Size(154, 20);
             this.переименоватьСтолбецToolStripMenuItem.Text = "Переименовать столбец";
@@ -384,23 +389,26 @@
             // удалитьToolStripMenuItem
             // 
             this.удалитьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.столбецToolStripMenuItem,
-            this.строкуToolStripMenuItem});
+            this.удалитьстолбецToolStripMenuItem,
+            this.удалитьстрокуToolStripMenuItem});
+            this.удалитьToolStripMenuItem.Enabled = false;
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
             this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.удалитьToolStripMenuItem.Text = "Удалить";
             // 
-            // столбецToolStripMenuItem
+            // удалитьстолбецToolStripMenuItem
             // 
-            this.столбецToolStripMenuItem.Name = "столбецToolStripMenuItem";
-            this.столбецToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.столбецToolStripMenuItem.Text = "Столбец";
+            this.удалитьстолбецToolStripMenuItem.Name = "удалитьстолбецToolStripMenuItem";
+            this.удалитьстолбецToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.удалитьстолбецToolStripMenuItem.Text = "Столбец";
+            this.удалитьстолбецToolStripMenuItem.Click += new System.EventHandler(this.удалитьстолбецToolStripMenuItem_Click);
             // 
-            // строкуToolStripMenuItem
+            // удалитьстрокуToolStripMenuItem
             // 
-            this.строкуToolStripMenuItem.Name = "строкуToolStripMenuItem";
-            this.строкуToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.строкуToolStripMenuItem.Text = "Строку";
+            this.удалитьстрокуToolStripMenuItem.Name = "удалитьстрокуToolStripMenuItem";
+            this.удалитьстрокуToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.удалитьстрокуToolStripMenuItem.Text = "Строку";
+            this.удалитьстрокуToolStripMenuItem.Click += new System.EventHandler(this.удалитьстрокуToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -465,8 +473,8 @@
         private System.Windows.Forms.Button buttonRenameTable;
         private System.Windows.Forms.ToolStripMenuItem переименоватьСтолбецToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem столбецToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem строкуToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem удалитьстолбецToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem удалитьстрокуToolStripMenuItem;
     }
 }
 
