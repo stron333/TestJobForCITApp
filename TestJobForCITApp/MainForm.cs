@@ -5,22 +5,29 @@ using System.Data;
 using System.Data.Common;
 using System.Data.Odbc;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace TestJobForCITApp
 {
     public partial class FormMain : Form
     {
         private BindingList<DataTable> _listDataTables;
+        private BindingList<string> _listFiles;
+
         public FormMain()
         {
             InitializeComponent();
             _listDataTables = new BindingList<DataTable>();
             listBoxTables.DataSource = _listDataTables;
             listBoxTables.DisplayMember = "TableName";
+
+            _listFiles = new BindingList<string>();
+            listBoxFiles.DataSource = _listFiles;
         }
 
         private void buttonAddTable_Click(object sender, EventArgs e)
@@ -165,6 +172,55 @@ namespace TestJobForCITApp
                     var SelectedRow = _listDataTables[listBoxTables.SelectedIndex].Rows[SelectedRowIndex];
                     _listDataTables[listBoxTables.SelectedIndex].Rows.Remove(SelectedRow);
                 }
+            }
+        }
+
+        private void buttonAddFile_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+            string filename = openFileDialog1.FileName;
+            _listFiles.Add(filename);
+            listBoxFiles.SelectedIndex = listBoxFiles.Items.Count - 1;
+            listBoxFiles_SelectedIndexChanged(sender, e);
+        }
+
+        private void buttonDeleteFile_Click(object sender, EventArgs e)
+        {
+            _listFiles.Remove(_listFiles[listBoxFiles.SelectedIndex]);
+        }
+
+        private void listBoxFiles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (_listFiles.Count == 0)
+                buttonDeleteFile.Enabled = false;
+            else
+                buttonDeleteFile.Enabled = true;
+        }
+
+        private void сформироватьXMLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ClassForPrinting classForPrinting = new ClassForPrinting();
+
+            classForPrinting.ListFields.Field1 = textBoxField1.Text;
+            classForPrinting.ListFields.Field2 = textBoxField2.Text;
+            classForPrinting.ListFields.Field3 = textBoxField3.Text;
+            classForPrinting.ListFields.Field4 = textBoxField4.Text;
+            classForPrinting.ListFields.Field5 = textBoxField5.Text;
+            classForPrinting.ListFields.Field6 = textBoxField6.Text;
+            classForPrinting.ListFields.Field7 = textBoxField7.Text;
+            classForPrinting.ListFields.Field8 = textBoxField8.Text;
+            classForPrinting.ListFields.Field9 = textBoxField9.Text;
+            classForPrinting.ListFields.Field10 = textBoxField10.Text;
+            classForPrinting.ListFiles = _listFiles.ToList();
+            classForPrinting.ListTables = _listDataTables.ToList();
+
+            XmlSerializer formatter = new XmlSerializer(typeof(ClassForPrinting));
+            using (FileStream fs = new FileStream("classForPrinting.xml", FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs, classForPrinting);
+
+                Console.WriteLine("Объект сериализован");
             }
         }
     }

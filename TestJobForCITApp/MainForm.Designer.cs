@@ -32,7 +32,7 @@
             this.labelField1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBoxField10 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxField9 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -65,6 +65,11 @@
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьстолбецToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьстрокуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listBoxFiles = new System.Windows.Forms.ListBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.buttonAddFile = new System.Windows.Forms.Button();
+            this.buttonDeleteFile = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -93,7 +98,7 @@
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label9);
-            this.panel1.Controls.Add(this.textBox10);
+            this.panel1.Controls.Add(this.textBoxField10);
             this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.textBoxField9);
             this.panel1.Controls.Add(this.label7);
@@ -126,12 +131,12 @@
             this.label9.TabIndex = 19;
             this.label9.Text = "Поле 10";
             // 
-            // textBox10
+            // textBoxField10
             // 
-            this.textBox10.Location = new System.Drawing.Point(56, 239);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 20);
-            this.textBox10.TabIndex = 18;
+            this.textBoxField10.Location = new System.Drawing.Point(56, 239);
+            this.textBoxField10.Name = "textBoxField10";
+            this.textBoxField10.Size = new System.Drawing.Size(100, 20);
+            this.textBoxField10.TabIndex = 18;
             // 
             // label8
             // 
@@ -277,6 +282,7 @@
             this.сформироватьXMLToolStripMenuItem.Name = "сформироватьXMLToolStripMenuItem";
             this.сформироватьXMLToolStripMenuItem.Size = new System.Drawing.Size(130, 20);
             this.сформироватьXMLToolStripMenuItem.Text = "Сформировать XML";
+            this.сформироватьXMLToolStripMenuItem.Click += new System.EventHandler(this.сформироватьXMLToolStripMenuItem_Click);
             // 
             // печатьToolStripMenuItem
             // 
@@ -399,22 +405,69 @@
             // удалитьстолбецToolStripMenuItem
             // 
             this.удалитьстолбецToolStripMenuItem.Name = "удалитьстолбецToolStripMenuItem";
-            this.удалитьстолбецToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.удалитьстолбецToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.удалитьстолбецToolStripMenuItem.Text = "Столбец";
             this.удалитьстолбецToolStripMenuItem.Click += new System.EventHandler(this.удалитьстолбецToolStripMenuItem_Click);
             // 
             // удалитьстрокуToolStripMenuItem
             // 
             this.удалитьстрокуToolStripMenuItem.Name = "удалитьстрокуToolStripMenuItem";
-            this.удалитьстрокуToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.удалитьстрокуToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.удалитьстрокуToolStripMenuItem.Text = "Строку";
             this.удалитьстрокуToolStripMenuItem.Click += new System.EventHandler(this.удалитьстрокуToolStripMenuItem_Click);
+            // 
+            // listBoxFiles
+            // 
+            this.listBoxFiles.FormattingEnabled = true;
+            this.listBoxFiles.Location = new System.Drawing.Point(12, 352);
+            this.listBoxFiles.Name = "listBoxFiles";
+            this.listBoxFiles.Size = new System.Drawing.Size(470, 173);
+            this.listBoxFiles.TabIndex = 9;
+            this.listBoxFiles.SelectedIndexChanged += new System.EventHandler(this.listBoxFiles_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(12, 327);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(44, 13);
+            this.label10.TabIndex = 10;
+            this.label10.Text = "Файлы";
+            // 
+            // buttonAddFile
+            // 
+            this.buttonAddFile.Location = new System.Drawing.Point(69, 322);
+            this.buttonAddFile.Name = "buttonAddFile";
+            this.buttonAddFile.Size = new System.Drawing.Size(100, 23);
+            this.buttonAddFile.TabIndex = 11;
+            this.buttonAddFile.Text = "Добавить файл";
+            this.buttonAddFile.UseVisualStyleBackColor = true;
+            this.buttonAddFile.Click += new System.EventHandler(this.buttonAddFile_Click);
+            // 
+            // buttonDeleteFile
+            // 
+            this.buttonDeleteFile.Enabled = false;
+            this.buttonDeleteFile.Location = new System.Drawing.Point(175, 322);
+            this.buttonDeleteFile.Name = "buttonDeleteFile";
+            this.buttonDeleteFile.Size = new System.Drawing.Size(100, 23);
+            this.buttonDeleteFile.TabIndex = 12;
+            this.buttonDeleteFile.Text = "Удалить файл";
+            this.buttonDeleteFile.UseVisualStyleBackColor = true;
+            this.buttonDeleteFile.Click += new System.EventHandler(this.buttonDeleteFile_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1243, 502);
+            this.ClientSize = new System.Drawing.Size(1243, 585);
+            this.Controls.Add(this.buttonDeleteFile);
+            this.Controls.Add(this.buttonAddFile);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.listBoxFiles);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStripMain);
@@ -442,7 +495,7 @@
         private System.Windows.Forms.Label labelField1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBoxField10;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxField9;
         private System.Windows.Forms.Label label7;
@@ -475,6 +528,11 @@
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьстолбецToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьстрокуToolStripMenuItem;
+        private System.Windows.Forms.ListBox listBoxFiles;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button buttonAddFile;
+        private System.Windows.Forms.Button buttonDeleteFile;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 
