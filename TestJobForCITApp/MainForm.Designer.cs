@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.textBoxField1 = new System.Windows.Forms.TextBox();
             this.labelField1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -57,6 +58,7 @@
             this.buttonDeleteTable = new System.Windows.Forms.Button();
             this.listBoxTables = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.buttonRenameTable = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.menuStripForTable = new System.Windows.Forms.MenuStrip();
@@ -72,8 +74,8 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel4 = new System.Windows.Forms.Panel();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.webControl1 = new Awesomium.Windows.Forms.WebControl(this.components);
             this.panel1.SuspendLayout();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -81,6 +83,7 @@
             this.panel3.SuspendLayout();
             this.menuStripForTable.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxField1
@@ -350,6 +353,16 @@
             this.panel2.Size = new System.Drawing.Size(1044, 266);
             this.panel2.TabIndex = 8;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(4, 164);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // buttonRenameTable
             // 
             this.buttonRenameTable.Enabled = false;
@@ -482,22 +495,20 @@
             this.webBrowser1.Size = new System.Drawing.Size(69, 46);
             this.webBrowser1.TabIndex = 0;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(4, 164);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.webControl1);
             this.panel5.Location = new System.Drawing.Point(500, 299);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(731, 316);
             this.panel5.TabIndex = 14;
+            // 
+            // webControl1
+            // 
+            this.webControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webControl1.Location = new System.Drawing.Point(0, 0);
+            this.webControl1.Size = new System.Drawing.Size(731, 316);
+            this.webControl1.TabIndex = 0;
             // 
             // FormMain
             // 
@@ -527,6 +538,7 @@
             this.menuStripForTable.ResumeLayout(false);
             this.menuStripForTable.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -580,6 +592,7 @@
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel5;
+        private Awesomium.Windows.Forms.WebControl webControl1;
     }
 }
 

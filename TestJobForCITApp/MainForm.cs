@@ -246,7 +246,7 @@ namespace TestJobForCITApp
             File.AppendAllText("table.xml", Environment.NewLine+
                 @"<?xml-stylesheet type=""text/css"" href=""css.css""?>");
 
-            //webControl1.Source = new Uri(@"C:\Users\Alex\source\repos\TestJobForCITApp\TestJobForCITApp\bin\Debug\table.xml");
+            webControl1.Source = new Uri(@"C:\Users\Alex\source\repos\TestJobForCITApp\TestJobForCITApp\bin\Debug\table.xml");
             //webControl1.Source = new Uri("https://www.cyberforum.ru/windows-forms/thread1538487.html");
             //webControl1.Source = new Uri(@"C:\Users\Alex\source\repos\TestJobForCITApp\TestJobForCITApp\bin\Debug\10_3.xml");
 
