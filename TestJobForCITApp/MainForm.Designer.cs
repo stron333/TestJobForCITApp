@@ -70,12 +70,17 @@
             this.buttonAddFile = new System.Windows.Forms.Button();
             this.buttonDeleteFile = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.menuStripForTable.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxField1
@@ -273,7 +278,7 @@
             this.печатьToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(1243, 24);
+            this.menuStripMain.Size = new System.Drawing.Size(1248, 24);
             this.menuStripMain.TabIndex = 3;
             this.menuStripMain.Text = "menuStrip1";
             // 
@@ -334,6 +339,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.buttonRenameTable);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.listBoxTables);
@@ -459,11 +465,47 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.webBrowser1);
+            this.panel4.Location = new System.Drawing.Point(12, 546);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(69, 46);
+            this.panel4.TabIndex = 13;
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(69, 46);
+            this.webBrowser1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(4, 164);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.Location = new System.Drawing.Point(500, 299);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(731, 316);
+            this.panel5.TabIndex = 14;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1243, 585);
+            this.ClientSize = new System.Drawing.Size(1248, 627);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.buttonDeleteFile);
             this.Controls.Add(this.buttonAddFile);
             this.Controls.Add(this.label10);
@@ -484,6 +526,7 @@
             this.panel3.PerformLayout();
             this.menuStripForTable.ResumeLayout(false);
             this.menuStripForTable.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -533,6 +576,10 @@
         private System.Windows.Forms.Button buttonAddFile;
         private System.Windows.Forms.Button buttonDeleteFile;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panel5;
     }
 }
 

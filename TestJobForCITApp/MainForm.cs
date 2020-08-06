@@ -216,12 +216,40 @@ namespace TestJobForCITApp
             classForPrinting.ListTables = _listDataTables.ToList();
 
             XmlSerializer formatter = new XmlSerializer(typeof(ClassForPrinting));
+            if (File.Exists("classForPrinting.xml")) 
+                File.Delete("classForPrinting.xml");
+
             using (FileStream fs = new FileStream("classForPrinting.xml", FileMode.OpenOrCreate))
             {
                 formatter.Serialize(fs, classForPrinting);
-
-                Console.WriteLine("Объект сериализован");
             }
+            
+            webBrowser1.Url = new Uri(@"C:\Users\Alex\source\repos\TestJobForCITApp\TestJobForCITApp\bin\Debug\classForPrinting.xml");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            List<TableForXML> tablesForXml = new List<TableForXML>();
+            foreach (DataTable listDataTable in _listDataTables)
+            {
+                tablesForXml.Add(new TableForXML().ConvertDataTAble(listDataTable));
+            }
+
+            XmlSerializer formatter = new XmlSerializer(typeof(List<TableForXML>));
+            if (File.Exists("table.xml"))
+                File.Delete("table.xml");
+
+            using (FileStream fs = new FileStream("table.xml", FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs, tablesForXml);
+            }
+            File.AppendAllText("table.xml", Environment.NewLine+
+                @"<?xml-stylesheet type=""text/css"" href=""css.css""?>");
+
+            //webControl1.Source = new Uri(@"C:\Users\Alex\source\repos\TestJobForCITApp\TestJobForCITApp\bin\Debug\table.xml");
+            //webControl1.Source = new Uri("https://www.cyberforum.ru/windows-forms/thread1538487.html");
+            //webControl1.Source = new Uri(@"C:\Users\Alex\source\repos\TestJobForCITApp\TestJobForCITApp\bin\Debug\10_3.xml");
+
         }
     }
 
