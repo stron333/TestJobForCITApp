@@ -11,11 +11,12 @@ namespace TestJobForCITApp
         {
             ListFields = new ListFields();
             ListTables = new List<TableForXML>();
+            ListFiles = new List<FileToXml>();
         }
 
         public ListFields ListFields { get; set; }
         public List<TableForXML> ListTables { get; set; }
-        public List<string> ListFiles { get; set; }
+        public List<FileToXml> ListFiles { get; set; }
     }
     
     

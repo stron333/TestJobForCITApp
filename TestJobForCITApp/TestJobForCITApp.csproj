@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="ClassForPrinting.cs" />
     <Compile Include="FieldForXML.cs" />
+    <Compile Include="FileToXML.cs" />
     <Compile Include="FormInsertName.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,12 +95,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bin\Debug\style.css" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="style.css" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

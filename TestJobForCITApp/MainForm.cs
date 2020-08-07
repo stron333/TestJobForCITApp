@@ -224,12 +224,18 @@ namespace TestJobForCITApp
                 new Field() { Name = labelField9.Text, Text = textBoxField9.Text });
             classForPrinting.ListFields.Field.Add(
                 new Field() { Name = labelField10.Text, Text = textBoxField10.Text });
-            classForPrinting.ListFiles = _listFiles.ToList();
+           
 
             foreach (DataTable listDataTable in _listDataTables)
             {
                 classForPrinting.ListTables.Add(
                     new TableForXML().ConvertDataTAble(listDataTable));
+            }
+
+            foreach (string filePath in _listFiles)
+            {
+                classForPrinting.ListFiles.Add(
+                    new FileToXml().ConvertFile(filePath));
             }
 
             XmlSerializer formatter = new XmlSerializer(typeof(ClassForPrinting));
@@ -240,8 +246,7 @@ namespace TestJobForCITApp
             {
                 formatter.Serialize(fs, classForPrinting);
             }
-
-            File.Copy(TestJobForCITApp.Properties.Resources);
+                
             File.AppendAllText("classForPrinting.xml", 
                 Environment.NewLine + @"<?xml-stylesheet type=""text/css"" href=""style.css""?>");
             
