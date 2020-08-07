@@ -4,13 +4,16 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.Common;
 using System.Data.Odbc;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using Awesomium.Core;
 
 namespace TestJobForCITApp
 {
@@ -201,19 +204,33 @@ namespace TestJobForCITApp
         private void сформироватьXMLToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ClassForPrinting classForPrinting = new ClassForPrinting();
-
-            classForPrinting.ListFields.Field1 = textBoxField1.Text;
-            classForPrinting.ListFields.Field2 = textBoxField2.Text;
-            classForPrinting.ListFields.Field3 = textBoxField3.Text;
-            classForPrinting.ListFields.Field4 = textBoxField4.Text;
-            classForPrinting.ListFields.Field5 = textBoxField5.Text;
-            classForPrinting.ListFields.Field6 = textBoxField6.Text;
-            classForPrinting.ListFields.Field7 = textBoxField7.Text;
-            classForPrinting.ListFields.Field8 = textBoxField8.Text;
-            classForPrinting.ListFields.Field9 = textBoxField9.Text;
-            classForPrinting.ListFields.Field10 = textBoxField10.Text;
+            classForPrinting.ListFields.Field.Add(
+                new Field(){ Name = labelField1.Text, Text = textBoxField1.Text });
+            classForPrinting.ListFields.Field.Add(
+                new Field() { Name = labelField2.Text, Text = textBoxField2.Text });
+            classForPrinting.ListFields.Field.Add(
+                new Field() { Name = labelField3.Text, Text = textBoxField3.Text });
+            classForPrinting.ListFields.Field.Add(
+                new Field() { Name = labelField4.Text, Text = textBoxField4.Text });
+            classForPrinting.ListFields.Field.Add(
+                new Field() { Name = labelField5.Text, Text = textBoxField5.Text });
+            classForPrinting.ListFields.Field.Add(
+                new Field() { Name = labelField6.Text, Text = textBoxField6.Text });
+            classForPrinting.ListFields.Field.Add(
+                new Field() { Name = labelField7.Text, Text = textBoxField7.Text });
+            classForPrinting.ListFields.Field.Add(
+                new Field() { Name = labelField8.Text, Text = textBoxField8.Text });
+            classForPrinting.ListFields.Field.Add(
+                new Field() { Name = labelField9.Text, Text = textBoxField9.Text });
+            classForPrinting.ListFields.Field.Add(
+                new Field() { Name = labelField10.Text, Text = textBoxField10.Text });
             classForPrinting.ListFiles = _listFiles.ToList();
-            classForPrinting.ListTables = _listDataTables.ToList();
+
+            foreach (DataTable listDataTable in _listDataTables)
+            {
+                classForPrinting.ListTables.Add(
+                    new TableForXML().ConvertDataTAble(listDataTable));
+            }
 
             XmlSerializer formatter = new XmlSerializer(typeof(ClassForPrinting));
             if (File.Exists("classForPrinting.xml")) 
@@ -223,33 +240,38 @@ namespace TestJobForCITApp
             {
                 formatter.Serialize(fs, classForPrinting);
             }
+
+            File.Copy(TestJobForCITApp.Properties.Resources);
+            File.AppendAllText("classForPrinting.xml", 
+                Environment.NewLine + @"<?xml-stylesheet type=""text/css"" href=""style.css""?>");
             
-            webBrowser1.Url = new Uri(@"C:\Users\Alex\source\repos\TestJobForCITApp\TestJobForCITApp\bin\Debug\classForPrinting.xml");
+            webControl1.Source = new Uri(Directory.GetCurrentDirectory()+ "/classForPrinting.xml");
         }
 
-        private void button1_Click(object sender, EventArgs e)
+       
+
+
+        private void button2_Click(object sender, EventArgs e)
         {
-            List<TableForXML> tablesForXml = new List<TableForXML>();
-            foreach (DataTable listDataTable in _listDataTables)
-            {
-                tablesForXml.Add(new TableForXML().ConvertDataTAble(listDataTable));
-            }
+            if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+            string filename = openFileDialog1.FileName;
+            webControl1.Source = new Uri(filename);
 
-            XmlSerializer formatter = new XmlSerializer(typeof(List<TableForXML>));
-            if (File.Exists("table.xml"))
-                File.Delete("table.xml");
+        }
 
-            using (FileStream fs = new FileStream("table.xml", FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fs, tablesForXml);
-            }
-            File.AppendAllText("table.xml", Environment.NewLine+
-                @"<?xml-stylesheet type=""text/css"" href=""css.css""?>");
-
-            webControl1.Source = new Uri(@"C:\Users\Alex\source\repos\TestJobForCITApp\TestJobForCITApp\bin\Debug\table.xml");
-            //webControl1.Source = new Uri("https://www.cyberforum.ru/windows-forms/thread1538487.html");
-            //webControl1.Source = new Uri(@"C:\Users\Alex\source\repos\TestJobForCITApp\TestJobForCITApp\bin\Debug\10_3.xml");
-
+        private void заполнитьТестовымиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBoxField1.Text = "Текст в поле 1";
+            textBoxField2.Text = "Текст в поле 2";
+            textBoxField3.Text = "Текст в поле 3";
+            textBoxField4.Text = "Текст в поле 4";
+            textBoxField5.Text = "Текст в поле 5";
+            textBoxField6.Text = "Текст в поле 6";
+            textBoxField7.Text = "Текст в поле 7";
+            textBoxField8.Text = "Текст в поле 8";
+            textBoxField9.Text = "Текст в поле 9";
+            textBoxField10.Text = "Текст в поле 10";
         }
     }
 

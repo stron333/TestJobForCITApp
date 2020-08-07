@@ -32,23 +32,23 @@
             this.textBoxField1 = new System.Windows.Forms.TextBox();
             this.labelField1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label9 = new System.Windows.Forms.Label();
+            this.labelField10 = new System.Windows.Forms.Label();
             this.textBoxField10 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
+            this.labelField9 = new System.Windows.Forms.Label();
             this.textBoxField9 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.labelField8 = new System.Windows.Forms.Label();
             this.textBoxField8 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
+            this.labelField7 = new System.Windows.Forms.Label();
             this.textBoxField7 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.labelField6 = new System.Windows.Forms.Label();
             this.textBoxField6 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelField5 = new System.Windows.Forms.Label();
             this.textBoxField5 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelField4 = new System.Windows.Forms.Label();
             this.textBoxField4 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelField3 = new System.Windows.Forms.Label();
             this.textBoxField3 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelField2 = new System.Windows.Forms.Label();
             this.textBoxField2 = new System.Windows.Forms.TextBox();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.сформироватьXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,7 +58,6 @@
             this.buttonDeleteTable = new System.Windows.Forms.Button();
             this.listBoxTables = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
             this.buttonRenameTable = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.menuStripForTable = new System.Windows.Forms.MenuStrip();
@@ -72,17 +71,17 @@
             this.buttonAddFile = new System.Windows.Forms.Button();
             this.buttonDeleteFile = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.panel5 = new System.Windows.Forms.Panel();
             this.webControl1 = new Awesomium.Windows.Forms.WebControl(this.components);
+            this.button2 = new System.Windows.Forms.Button();
+            this.заполнитьТестовымиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.menuStripForTable.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,23 +104,23 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.labelField10);
             this.panel1.Controls.Add(this.textBoxField10);
-            this.panel1.Controls.Add(this.label8);
+            this.panel1.Controls.Add(this.labelField9);
             this.panel1.Controls.Add(this.textBoxField9);
-            this.panel1.Controls.Add(this.label7);
+            this.panel1.Controls.Add(this.labelField8);
             this.panel1.Controls.Add(this.textBoxField8);
-            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.labelField7);
             this.panel1.Controls.Add(this.textBoxField7);
-            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.labelField6);
             this.panel1.Controls.Add(this.textBoxField6);
-            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.labelField5);
             this.panel1.Controls.Add(this.textBoxField5);
-            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.labelField4);
             this.panel1.Controls.Add(this.textBoxField4);
-            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.labelField3);
             this.panel1.Controls.Add(this.textBoxField3);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.labelField2);
             this.panel1.Controls.Add(this.textBoxField2);
             this.panel1.Controls.Add(this.labelField1);
             this.panel1.Controls.Add(this.textBoxField1);
@@ -130,14 +129,14 @@
             this.panel1.Size = new System.Drawing.Size(171, 266);
             this.panel1.TabIndex = 2;
             // 
-            // label9
+            // labelField10
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 242);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 13);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "Поле 10";
+            this.labelField10.AutoSize = true;
+            this.labelField10.Location = new System.Drawing.Point(8, 242);
+            this.labelField10.Name = "labelField10";
+            this.labelField10.Size = new System.Drawing.Size(48, 13);
+            this.labelField10.TabIndex = 19;
+            this.labelField10.Text = "Поле 10";
             // 
             // textBoxField10
             // 
@@ -146,14 +145,14 @@
             this.textBoxField10.Size = new System.Drawing.Size(100, 20);
             this.textBoxField10.TabIndex = 18;
             // 
-            // label8
+            // labelField9
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 216);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(42, 13);
-            this.label8.TabIndex = 17;
-            this.label8.Text = "Поле 9";
+            this.labelField9.AutoSize = true;
+            this.labelField9.Location = new System.Drawing.Point(8, 216);
+            this.labelField9.Name = "labelField9";
+            this.labelField9.Size = new System.Drawing.Size(42, 13);
+            this.labelField9.TabIndex = 17;
+            this.labelField9.Text = "Поле 9";
             // 
             // textBoxField9
             // 
@@ -162,14 +161,14 @@
             this.textBoxField9.Size = new System.Drawing.Size(100, 20);
             this.textBoxField9.TabIndex = 16;
             // 
-            // label7
+            // labelField8
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(8, 190);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 13);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Поле 8";
+            this.labelField8.AutoSize = true;
+            this.labelField8.Location = new System.Drawing.Point(8, 190);
+            this.labelField8.Name = "labelField8";
+            this.labelField8.Size = new System.Drawing.Size(42, 13);
+            this.labelField8.TabIndex = 15;
+            this.labelField8.Text = "Поле 8";
             // 
             // textBoxField8
             // 
@@ -178,14 +177,14 @@
             this.textBoxField8.Size = new System.Drawing.Size(100, 20);
             this.textBoxField8.TabIndex = 14;
             // 
-            // label6
+            // labelField7
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 164);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 13);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Поле 7";
+            this.labelField7.AutoSize = true;
+            this.labelField7.Location = new System.Drawing.Point(8, 164);
+            this.labelField7.Name = "labelField7";
+            this.labelField7.Size = new System.Drawing.Size(42, 13);
+            this.labelField7.TabIndex = 13;
+            this.labelField7.Text = "Поле 7";
             // 
             // textBoxField7
             // 
@@ -194,14 +193,14 @@
             this.textBoxField7.Size = new System.Drawing.Size(100, 20);
             this.textBoxField7.TabIndex = 12;
             // 
-            // label5
+            // labelField6
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 138);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 13);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Поле 6";
+            this.labelField6.AutoSize = true;
+            this.labelField6.Location = new System.Drawing.Point(8, 138);
+            this.labelField6.Name = "labelField6";
+            this.labelField6.Size = new System.Drawing.Size(42, 13);
+            this.labelField6.TabIndex = 11;
+            this.labelField6.Text = "Поле 6";
             // 
             // textBoxField6
             // 
@@ -210,14 +209,14 @@
             this.textBoxField6.Size = new System.Drawing.Size(100, 20);
             this.textBoxField6.TabIndex = 10;
             // 
-            // label4
+            // labelField5
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 112);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Поле 5";
+            this.labelField5.AutoSize = true;
+            this.labelField5.Location = new System.Drawing.Point(8, 112);
+            this.labelField5.Name = "labelField5";
+            this.labelField5.Size = new System.Drawing.Size(42, 13);
+            this.labelField5.TabIndex = 9;
+            this.labelField5.Text = "Поле 5";
             // 
             // textBoxField5
             // 
@@ -226,14 +225,14 @@
             this.textBoxField5.Size = new System.Drawing.Size(100, 20);
             this.textBoxField5.TabIndex = 8;
             // 
-            // label3
+            // labelField4
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 86);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Поле 4";
+            this.labelField4.AutoSize = true;
+            this.labelField4.Location = new System.Drawing.Point(8, 86);
+            this.labelField4.Name = "labelField4";
+            this.labelField4.Size = new System.Drawing.Size(42, 13);
+            this.labelField4.TabIndex = 7;
+            this.labelField4.Text = "Поле 4";
             // 
             // textBoxField4
             // 
@@ -242,14 +241,14 @@
             this.textBoxField4.Size = new System.Drawing.Size(100, 20);
             this.textBoxField4.TabIndex = 6;
             // 
-            // label2
+            // labelField3
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Поле 3";
+            this.labelField3.AutoSize = true;
+            this.labelField3.Location = new System.Drawing.Point(8, 60);
+            this.labelField3.Name = "labelField3";
+            this.labelField3.Size = new System.Drawing.Size(42, 13);
+            this.labelField3.TabIndex = 5;
+            this.labelField3.Text = "Поле 3";
             // 
             // textBoxField3
             // 
@@ -258,14 +257,14 @@
             this.textBoxField3.Size = new System.Drawing.Size(100, 20);
             this.textBoxField3.TabIndex = 4;
             // 
-            // label1
+            // labelField2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 34);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Поле 2";
+            this.labelField2.AutoSize = true;
+            this.labelField2.Location = new System.Drawing.Point(8, 34);
+            this.labelField2.Name = "labelField2";
+            this.labelField2.Size = new System.Drawing.Size(42, 13);
+            this.labelField2.TabIndex = 3;
+            this.labelField2.Text = "Поле 2";
             // 
             // textBoxField2
             // 
@@ -278,7 +277,8 @@
             // 
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.сформироватьXMLToolStripMenuItem,
-            this.печатьToolStripMenuItem});
+            this.печатьToolStripMenuItem,
+            this.заполнитьТестовымиToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
             this.menuStripMain.Size = new System.Drawing.Size(1248, 24);
@@ -342,7 +342,6 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.buttonRenameTable);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.listBoxTables);
@@ -352,16 +351,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1044, 266);
             this.panel2.TabIndex = 8;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(4, 164);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // buttonRenameTable
             // 
@@ -478,23 +467,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.webBrowser1);
-            this.panel4.Location = new System.Drawing.Point(12, 546);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(69, 46);
-            this.panel4.TabIndex = 13;
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(69, 46);
-            this.webBrowser1.TabIndex = 0;
-            // 
             // panel5
             // 
             this.panel5.Controls.Add(this.webControl1);
@@ -510,13 +482,40 @@
             this.webControl1.Size = new System.Drawing.Size(731, 316);
             this.webControl1.TabIndex = 0;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(407, 299);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 15;
+            this.button2.Text = "Открыть";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // заполнитьТестовымиToolStripMenuItem
+            // 
+            this.заполнитьТестовымиToolStripMenuItem.Name = "заполнитьТестовымиToolStripMenuItem";
+            this.заполнитьТестовымиToolStripMenuItem.Size = new System.Drawing.Size(141, 20);
+            this.заполнитьТестовымиToolStripMenuItem.Text = "Заполнить тестовыми";
+            this.заполнитьТестовымиToolStripMenuItem.Click += new System.EventHandler(this.заполнитьТестовымиToolStripMenuItem_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(281, 322);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1248, 627);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel4);
             this.Controls.Add(this.buttonDeleteFile);
             this.Controls.Add(this.buttonAddFile);
             this.Controls.Add(this.label10);
@@ -537,7 +536,6 @@
             this.panel3.PerformLayout();
             this.menuStripForTable.ResumeLayout(false);
             this.menuStripForTable.PerformLayout();
-            this.panel4.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -549,23 +547,23 @@
         private System.Windows.Forms.TextBox textBoxField1;
         private System.Windows.Forms.Label labelField1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label labelField10;
         private System.Windows.Forms.TextBox textBoxField10;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label labelField9;
         private System.Windows.Forms.TextBox textBoxField9;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label labelField8;
         private System.Windows.Forms.TextBox textBoxField8;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelField7;
         private System.Windows.Forms.TextBox textBoxField7;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label labelField6;
         private System.Windows.Forms.TextBox textBoxField6;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelField5;
         private System.Windows.Forms.TextBox textBoxField5;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelField4;
         private System.Windows.Forms.TextBox textBoxField4;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelField3;
         private System.Windows.Forms.TextBox textBoxField3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelField2;
         private System.Windows.Forms.TextBox textBoxField2;
         private System.Windows.Forms.MenuStrip menuStripMain;
         private System.Windows.Forms.ToolStripMenuItem сформироватьXMLToolStripMenuItem;
@@ -588,11 +586,11 @@
         private System.Windows.Forms.Button buttonAddFile;
         private System.Windows.Forms.Button buttonDeleteFile;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.WebBrowser webBrowser1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel5;
         private Awesomium.Windows.Forms.WebControl webControl1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripMenuItem заполнитьТестовымиToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
 

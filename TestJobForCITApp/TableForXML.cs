@@ -7,52 +7,7 @@ using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace TestJobForCITApp
-{/*
-    [Serializable]
-    public class TableForXML
-    {
-        public TableForXML()
-        {
-            TRows = new List<TRow>();
-        }
-        public List<TRow> TRows { get; set; }
-
-
-        public TableForXML ConvertDataTAble(DataTable dataTable)
-        {
-            TRow rowHead = new TRow();
-            foreach (DataColumn columnTable in dataTable.Columns)
-            {
-                rowHead.TCells.Add(columnTable.ColumnName);
-            }
-            TRows.Add(rowHead);
-
-            foreach (DataRow rowTable in dataTable.Rows)
-            {
-                TRow row = new TRow();
-                var cells = rowTable.ItemArray;
-                foreach (object cell in cells)
-                    row.TCells.Add(cell.ToString());
-                TRows.Add(row);
-            }
-
-            return this;
-        }
-    }
-    [Serializable]
-    public class TRow
-    {
-        public TRow()
-        {
-            TCells = new List<string>();
-        }
-        public List<string> TCells { get; set; }
-    }*/
-
-
-
-    
-
+{
     [XmlRoot(ElementName = "TRow")]
     public class TRow
     {
@@ -70,17 +25,19 @@ namespace TestJobForCITApp
     [XmlRoot(ElementName = "TableForXML")]
     public class TableForXML
     {
+        [XmlElement(ElementName = "NameTable")]
+        public string NameTable { get; set; }
+        [XmlElement(ElementName = "TRow")]
+        public List<TRow> TRow { get; set; }
+
         public TableForXML()
         {
             TRow = new List<TRow>();
         }
 
-        [XmlElement(ElementName = "TRow")]
-        public List<TRow> TRow { get; set; }
-
-
-        public TableForXML ConvertDataTAble(DataTable dataTable)
-        {
+       public TableForXML ConvertDataTAble(DataTable dataTable)
+       {
+           NameTable = dataTable.TableName;
             TRow rowHead = new TRow();
             foreach (DataColumn columnTable in dataTable.Columns)
             {
