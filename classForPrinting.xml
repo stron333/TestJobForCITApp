@@ -1,83 +1,126 @@
 <?xml version="1.0"?>
-<?xml-stylesheet type="text/css" href="css.css"?>
 <ClassForPrinting xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ListFields>
-    <Field1>Данные поля 1</Field1>
-    <Field2>Данные поля 2</Field2>
-    <Field3>Данные поля 3</Field3>
-    <Field4>Данные поля 4</Field4>
-    <Field5>Данные поля 5</Field5>
-    <Field6>Данные поля 6</Field6>
-    <Field7>Данные поля 7</Field7>
-    <Field8>Данные поля 8</Field8>
-    <Field9>Данные поля 9</Field9>
-    <Field10>Данные поля 10</Field10>
+    <Field>
+      <Name>Поле 1</Name>
+      <Text>Текст в поле 1</Text>
+    </Field>
+    <Field>
+      <Name>Поле 2</Name>
+      <Text>Текст в поле 2</Text>
+    </Field>
+    <Field>
+      <Name>Поле 3</Name>
+      <Text>Текст в поле 3</Text>
+    </Field>
+    <Field>
+      <Name>Поле 4</Name>
+      <Text>Текст в поле 4</Text>
+    </Field>
+    <Field>
+      <Name>Поле 5</Name>
+      <Text>Текст в поле 5</Text>
+    </Field>
+    <Field>
+      <Name>Поле 6</Name>
+      <Text>Текст в поле 6</Text>
+    </Field>
+    <Field>
+      <Name>Поле 7</Name>
+      <Text>Текст в поле 7</Text>
+    </Field>
+    <Field>
+      <Name>Поле 8</Name>
+      <Text>Текст в поле 8</Text>
+    </Field>
+    <Field>
+      <Name>Поле 9</Name>
+      <Text>Текст в поле 9</Text>
+    </Field>
+    <Field>
+      <Name>Поле 10</Name>
+      <Text>Текст в поле 10</Text>
+    </Field>
   </ListFields>
   <ListTables>
-    <DataTable>
-      <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="Первая_x0020_таблица" msdata:UseCurrentLocale="true">
-          <xs:complexType>
-            <xs:choice minOccurs="0" maxOccurs="unbounded">
-              <xs:element name="Первая_x0020_таблица">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="столбец_x0020_1" type="xs:string" minOccurs="0" />
-                    <xs:element name="столбец_x0020_2" type="xs:string" minOccurs="0" />
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-            </xs:choice>
-          </xs:complexType>
-        </xs:element>
-      </xs:schema>
-      <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
-        <DocumentElement>
-          <Первая_x0020_таблица diffgr:id="Первая таблица1" msdata:rowOrder="0" diffgr:hasChanges="inserted">
-            <столбец_x0020_1>йй</столбец_x0020_1>
-            <столбец_x0020_2>цц</столбец_x0020_2>
-          </Первая_x0020_таблица>
-          <Первая_x0020_таблица diffgr:id="Первая таблица2" msdata:rowOrder="1" diffgr:hasChanges="inserted">
-            <столбец_x0020_1>йййй</столбец_x0020_1>
-            <столбец_x0020_2>wwwww</столбец_x0020_2>
-          </Первая_x0020_таблица>
-        </DocumentElement>
-      </diffgr:diffgram>
-    </DataTable>
-    <DataTable>
-      <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
-        <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:MainDataTable="Вторая_x0020_таблица" msdata:UseCurrentLocale="true">
-          <xs:complexType>
-            <xs:choice minOccurs="0" maxOccurs="unbounded">
-              <xs:element name="Вторая_x0020_таблица">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="_x0031_23" type="xs:string" minOccurs="0" />
-                    <xs:element name="_x0033_21" type="xs:string" minOccurs="0" />
-                  </xs:sequence>
-                </xs:complexType>
-              </xs:element>
-            </xs:choice>
-          </xs:complexType>
-        </xs:element>
-      </xs:schema>
-      <diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
-        <DocumentElement>
-          <Вторая_x0020_таблица diffgr:id="Вторая таблица1" msdata:rowOrder="0" diffgr:hasChanges="inserted">
-            <_x0031_23>sdf</_x0031_23>
-            <_x0033_21>sdfs</_x0033_21>
-          </Вторая_x0020_таблица>
-          <Вторая_x0020_таблица diffgr:id="Вторая таблица2" msdata:rowOrder="1" diffgr:hasChanges="inserted">
-            <_x0031_23>sdfs</_x0031_23>
-            <_x0033_21>sdfs</_x0033_21>
-          </Вторая_x0020_таблица>
-        </DocumentElement>
-      </diffgr:diffgram>
-    </DataTable>
+    <TableForXML>
+      <NameTable>Таблица 1</NameTable>
+      <TRow>
+        <THead>Столбец 1</THead>
+      </TRow>
+      <TRow>
+        <TCell>Строчка 1</TCell>
+      </TRow>
+      <TRow>
+        <TCell>Строка1 нормальная</TCell>
+      </TRow>
+      <TRow>
+        <TCell>Строчка3</TCell>
+      </TRow>
+      <TRow>
+        <TCell>Строчка 4</TCell>
+      </TRow>
+      <TRow>
+        <TCell>Строчка 5</TCell>
+      </TRow>
+      <TRow>
+        <TCell>Строчка 5</TCell>
+      </TRow>
+      <TRow>
+        <TCell>Строчка 5</TCell>
+      </TRow>
+      <TRow>
+        <TCell>Строчка 5</TCell>
+      </TRow>
+      <TRow>
+        <TCell>Строчка 5</TCell>
+      </TRow>
+      <TRow>
+        <TCell>Строчка 5</TCell>
+      </TRow>
+    </TableForXML>
+    <TableForXML>
+      <NameTable>Таблица 2</NameTable>
+      <TRow>
+        <THead>Столбец 1</THead>
+        <THead>Столбец 2</THead>
+        <THead>Столбец 3</THead>
+      </TRow>
+      <TRow>
+        <TCell>sdfsdf</TCell>
+        <TCell>fdscsdcs</TCell>
+        <TCell>sdcsdcs</TCell>
+      </TRow>
+      <TRow>
+        <TCell>sdfsdf</TCell>
+        <TCell>sdfsdfsd</TCell>
+        <TCell>fdsfdsfsd</TCell>
+      </TRow>
+      <TRow>
+        <TCell>cdscdscds</TCell>
+        <TCell>sdfsdf</TCell>
+        <TCell>fdsdfsdfsdf</TCell>
+      </TRow>
+    </TableForXML>
+    <TableForXML>
+      <NameTable>Таблица 3</NameTable>
+      <TRow>
+        <THead>11</THead>
+        <THead>22</THead>
+        <THead>33</THead>
+      </TRow>
+      <TRow>
+        <TCell>qwe</TCell>
+        <TCell>qeweq</TCell>
+        <TCell>wqdqwd</TCell>
+      </TRow>
+      <TRow>
+        <TCell>sdfsd</TCell>
+        <TCell>fsdfs</TCell>
+        <TCell>sdfsdfsdf</TCell>
+      </TRow>
+    </TableForXML>
   </ListTables>
-  <ListFiles>
-    <string>C:\Program Files (x86)\AIMP\AIMP.exe</string>
-    <string>C:\Users\Alex\AppData\Roaming\GSS PMR\CryptoGSS\CryptoGSS.exe</string>
-    <string>C:\Program Files (x86)\Mozilla Firefox\firefox.exe</string>
-  </ListFiles>
+  <ListFiles />
 </ClassForPrinting>
+<?xml-stylesheet type="text/css" href="style.css"?>
