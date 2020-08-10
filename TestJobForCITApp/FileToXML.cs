@@ -15,13 +15,14 @@ namespace TestJobForCITApp
 
         public FileToXml ConvertFile(string filePath)
         {
-            Text = Environment.NewLine+@"<htmlx xmlns=""http://www.w3.org/1999/xhtml"" xml:lang=""ru"" lang=""ru"">"
+            Text = Environment.NewLine+
+                   @"       <htmlx xmlns=""http://www.w3.org/1999/xhtml"" xml:lang=""ru"" lang=""ru"">"
                                   + Environment.NewLine;
-            Text += @"  <body>" + Environment.NewLine;
-            Text += $@"      <a href=""{filePath}"" download="""">{Path.GetFileName(filePath)}</a>"
+            Text += @"        <body>" + Environment.NewLine;
+            Text += $@"              <a href=""{filePath}"" download="""">{Path.GetFileName(filePath)}</a>"
                       + Environment.NewLine;
-            Text += @"  </body>" + Environment.NewLine;
-            Text += @"</htmlx>";
+            Text += @"       </body>" + Environment.NewLine;
+            Text += @"      </htmlx>";
             return this;
         }
     }

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.textBoxField1 = new System.Windows.Forms.TextBox();
             this.labelField1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -52,7 +51,7 @@
             this.textBoxField2 = new System.Windows.Forms.TextBox();
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.сформироватьXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.печатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.заполнитьТестовымиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.buttonAddTable = new System.Windows.Forms.Button();
             this.buttonDeleteTable = new System.Windows.Forms.Button();
@@ -71,18 +70,12 @@
             this.buttonAddFile = new System.Windows.Forms.Button();
             this.buttonDeleteFile = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.webControl1 = new Awesomium.Windows.Forms.WebControl(this.components);
-            this.button2 = new System.Windows.Forms.Button();
-            this.заполнитьТестовымиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.menuStripForTable.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxField1
@@ -277,7 +270,6 @@
             // 
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.сформироватьXMLToolStripMenuItem,
-            this.печатьToolStripMenuItem,
             this.заполнитьТестовымиToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
@@ -292,14 +284,16 @@
             this.сформироватьXMLToolStripMenuItem.Text = "Сформировать XML";
             this.сформироватьXMLToolStripMenuItem.Click += new System.EventHandler(this.сформироватьXMLToolStripMenuItem_Click);
             // 
-            // печатьToolStripMenuItem
+            // заполнитьТестовымиToolStripMenuItem
             // 
-            this.печатьToolStripMenuItem.Name = "печатьToolStripMenuItem";
-            this.печатьToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
-            this.печатьToolStripMenuItem.Text = "Печать";
+            this.заполнитьТестовымиToolStripMenuItem.Name = "заполнитьТестовымиToolStripMenuItem";
+            this.заполнитьТестовымиToolStripMenuItem.Size = new System.Drawing.Size(141, 20);
+            this.заполнитьТестовымиToolStripMenuItem.Text = "Заполнить тестовыми";
+            this.заполнитьТестовымиToolStripMenuItem.Click += new System.EventHandler(this.заполнитьТестовымиToolStripMenuItem_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.Silver;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 24);
@@ -467,55 +461,12 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.webControl1);
-            this.panel5.Location = new System.Drawing.Point(500, 299);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(731, 316);
-            this.panel5.TabIndex = 14;
-            // 
-            // webControl1
-            // 
-            this.webControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webControl1.Location = new System.Drawing.Point(0, 0);
-            this.webControl1.Size = new System.Drawing.Size(731, 316);
-            this.webControl1.TabIndex = 0;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(407, 299);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 15;
-            this.button2.Text = "Открыть";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // заполнитьТестовымиToolStripMenuItem
-            // 
-            this.заполнитьТестовымиToolStripMenuItem.Name = "заполнитьТестовымиToolStripMenuItem";
-            this.заполнитьТестовымиToolStripMenuItem.Size = new System.Drawing.Size(141, 20);
-            this.заполнитьТестовымиToolStripMenuItem.Text = "Заполнить тестовыми";
-            this.заполнитьТестовымиToolStripMenuItem.Click += new System.EventHandler(this.заполнитьТестовымиToolStripMenuItem_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(281, 322);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(96, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1248, 627);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.panel5);
+            this.BackColor = System.Drawing.Color.Honeydew;
+            this.ClientSize = new System.Drawing.Size(1248, 553);
             this.Controls.Add(this.buttonDeleteFile);
             this.Controls.Add(this.buttonAddFile);
             this.Controls.Add(this.label10);
@@ -536,7 +487,6 @@
             this.panel3.PerformLayout();
             this.menuStripForTable.ResumeLayout(false);
             this.menuStripForTable.PerformLayout();
-            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -567,7 +517,6 @@
         private System.Windows.Forms.TextBox textBoxField2;
         private System.Windows.Forms.MenuStrip menuStripMain;
         private System.Windows.Forms.ToolStripMenuItem сформироватьXMLToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem печатьToolStripMenuItem;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button buttonAddTable;
         private System.Windows.Forms.Button buttonDeleteTable;
@@ -586,11 +535,7 @@
         private System.Windows.Forms.Button buttonAddFile;
         private System.Windows.Forms.Button buttonDeleteFile;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Panel panel5;
-        private Awesomium.Windows.Forms.WebControl webControl1;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolStripMenuItem заполнитьТестовымиToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
     }
 }
 
