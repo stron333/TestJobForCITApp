@@ -30,15 +30,14 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.печатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.печатьВложенийToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.печатьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.печатьToolStripMenuItem,
-            this.печатьВложенийToolStripMenuItem});
+            this.печатьToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1157, 24);
@@ -52,12 +51,12 @@
             this.печатьToolStripMenuItem.Text = "Печать";
             this.печатьToolStripMenuItem.Click += new System.EventHandler(this.печатьToolStripMenuItem_Click);
             // 
-            // печатьВложенийToolStripMenuItem
+            // печатьToolStripMenuItem1
             // 
-            this.печатьВложенийToolStripMenuItem.Name = "печатьВложенийToolStripMenuItem";
-            this.печатьВложенийToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
-            this.печатьВложенийToolStripMenuItem.Text = "Печать вложений";
-            this.печатьВложенийToolStripMenuItem.Click += new System.EventHandler(this.печатьВложенийToolStripMenuItem_Click);
+            this.печатьToolStripMenuItem1.Name = "печатьToolStripMenuItem1";
+            this.печатьToolStripMenuItem1.Size = new System.Drawing.Size(58, 20);
+            this.печатьToolStripMenuItem1.Text = "Печать";
+            this.печатьToolStripMenuItem1.Click += new System.EventHandler(this.печатьToolStripMenuItem1_Click);
             // 
             // FormBrowser
             // 
@@ -80,6 +79,6 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem печатьToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem печатьВложенийToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem печатьToolStripMenuItem1;
     }
 }

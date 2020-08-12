@@ -1,0 +1,107 @@
+ClassForPrinting
+{
+	display: block;
+	-webkit-print-color-adjust: exact;
+	width: 660px;
+    margin: 24px auto;
+    padding: 20px 20px 20px 20px;
+    background-color: #CCCCCC;
+    border: #000000 1px solid;
+    font-family: Roboto;
+}
+ListFields {
+	display: grid;
+	grid-template-columns: auto auto;
+	grid-template-rows: auto auto auto auto auto;
+	grid-auto-flow: column;
+	Margin: 10px;
+}
+Field
+{	
+display: table-row;
+	text-align: left;
+	height: 35px;
+	width: 300px;
+	line-height: 35px; 	
+	border-left: solid 5px; 	
+	margin-top: 10px;
+	margin-right: auto;
+	margin-left: auto;	
+	border-color: #9D003A;
+	background-color: #FFFFFF;
+}
+Field Name{
+	display: table-cell;
+	width: 100px;
+	text-align: center;
+	font-size: 80%;
+	background-color: #F3F3F3;
+}
+Field Text{
+	display: table-cell;
+	font-size: 80%;
+	width: 200px;
+	text-align: center;
+	background-color: #FFFFFF;
+}
+
+ListTables {	
+}
+TableForXML { 
+    display:table;
+	width:100%;	
+	text-align: center;
+	Margin: 10px;
+	margin-right: auto;
+	margin-left: auto;
+} 
+TableForXML NameTable{
+    display: table-caption;
+	height: 40px;
+	line-height: 45px;
+    text-align: left;
+	padding-left: 20px;
+	font-weight: bold;
+	font-size: 80%;
+	color: white;
+	background-color: #9D003A;
+}
+
+TRow{ 
+    display:table-row;
+	line-height: 25px;
+    text-align:center;
+    padding:10px; 
+    background-color:#FFFFFF; 
+} 
+TCell { 
+    font-size: 13px;	
+	padding: 5px;
+}
+THead { 
+	display:table-header-group;
+	height: 25px;
+	line-height: 30px;
+    background: #F3F3F3;
+	font-size: 80%;
+	font-weight: bold;
+	text-align: center;
+}
+TCell, THead { 
+    display: table-cell; 
+	border: solid 1px; 	
+	border-color: #CCCCCC;	
+}
+
+FileToXml{
+	display: inline-block;	
+}
+body{
+	display: list-item;	
+	margin-left: 25px;
+}
+a {	
+	color:#9D003A
+}
+
+

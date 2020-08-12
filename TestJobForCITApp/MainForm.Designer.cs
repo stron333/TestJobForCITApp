@@ -70,6 +70,7 @@
             this.buttonAddFile = new System.Windows.Forms.Button();
             this.buttonDeleteFile = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -461,12 +462,23 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(536, 321);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Honeydew;
-            this.ClientSize = new System.Drawing.Size(1248, 553);
+            this.ClientSize = new System.Drawing.Size(1248, 746);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonDeleteFile);
             this.Controls.Add(this.buttonAddFile);
             this.Controls.Add(this.label10);
@@ -536,6 +548,7 @@
         private System.Windows.Forms.Button buttonDeleteFile;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem заполнитьТестовымиToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }
 

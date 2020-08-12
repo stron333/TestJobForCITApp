@@ -1,19 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.Common;
-using System.Data.Odbc;
-using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-using Awesomium.Core;
 
 namespace TestJobForCITApp
 {
@@ -237,7 +228,7 @@ namespace TestJobForCITApp
 
 
             this.Enabled = false;
-            FormBrowser formBrowser = new FormBrowser(new Uri(pathToXml));
+            FormBrowser formBrowser = new FormBrowser(new Uri(pathToXml), _listFiles.ToList());
             formBrowser.Closing += delegate { this.Enabled = true; };
             formBrowser.Show();
         }
@@ -288,6 +279,12 @@ namespace TestJobForCITApp
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
         }
     }
 

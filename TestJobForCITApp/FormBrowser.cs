@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Printing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 using CefSharp;
-using CefSharp.Example;
 using CefSharp.Example.Handlers;
 using CefSharp.WinForms;
+using Spire.Pdf;
 
 namespace TestJobForCITApp
 {
@@ -19,10 +13,12 @@ namespace TestJobForCITApp
     {
         public ChromiumWebBrowser chromeBrowser;
         private Uri _uri;
-        public FormBrowser(Uri uri)
+        private List<string> _listFiles;
+        public FormBrowser(Uri uri, List<string> listFiles)
         {
-            InitializeComponent();
             _uri = uri;
+            _listFiles = listFiles;
+            InitializeComponent();
             InitializeChromium();
         }
         public void InitializeChromium()
@@ -47,16 +43,49 @@ namespace TestJobForCITApp
 
         private void печатьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            chromeBrowser.Print();
-            PrintPreviewDialog printPreviewDialog = new PrintPreviewDialog();
-            printPreviewDialog.Document = 
-                new PrintDocument();
+            //chromeBrowser.Print();
+            chromeBrowser.PrintToPdfAsync(@"C:\Users\Alex\source\repos\TestJobForCITApp\TestJobForCITApp\bin\Debug\temp\1.pdf");
         }
 
-        private void печатьВложенийToolStripMenuItem_Click(object sender, EventArgs e)
+        private void печатьToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            PrintDocument printDocument = new PrintDocument();
-            printDocument.Container.Add();
+            string targetLocation = Directory.GetCurrentDirectory() + @"\temp";
+            string outputPDF = Directory.GetCurrentDirectory() + @"\AllInOne.pdf";
+            //удаляем временные файлы
+            if (Directory.Exists(targetLocation))
+                Directory.Delete(targetLocation, true);
+            Directory.CreateDirectory(targetLocation);
+            //Конвертируем файлы вложений в PDF
+            FileHelper fileHelper = new FileHelper();
+            foreach (string filePath in _listFiles)
+            {
+                FileInfo file = new FileInfo(filePath);
+                var fileName = file.Name;
+                var sourceFilePath = file.FullName;
+                string contentType = MimeMapping.MimeUtility.GetMimeMapping(file.ToString());
+                fileHelper.ConvertToPDF(sourceFilePath, contentType, fileName, targetLocation);
+            }
+
+            //Конвертируем XML в PDF
+            chromeBrowser.PrintToPdfAsync(outputPDF);
+            //Собираем все PDF в один
+            String[] pathsOutPdfs = Directory.GetFiles(targetLocation);
+            PdfDocument[] OutPdfs = new PdfDocument[pathsOutPdfs.Length];
+            PdfDocument AllInOnePdf = new PdfDocument(outputPDF);
+            for (int i = 0; i < pathsOutPdfs.Length; i++)
+            {
+                OutPdfs[i] = new PdfDocument(pathsOutPdfs[i]);
+            }
+            for (int i = 0; i < pathsOutPdfs.Length; i++)
+            {
+                AllInOnePdf.AppendPage(OutPdfs[i]);
+            }
+            AllInOnePdf.SaveToFile(outputPDF);
+
+
+
+
+            chromeBrowser.Load(outputPDF);
         }
     }
 }
