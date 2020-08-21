@@ -1,54 +1,34 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Drawing.Printing;
 using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using CefSharp;
-using CefSharp.Example.Handlers;
-using CefSharp.WinForms;
+using Awesomium.Core;
 using Spire.Pdf;
 
 namespace TestJobForCITApp
 {
-    public partial class FormBrowser : Form
+    public partial class FormAwesomium : Form
     {
-        public ChromiumWebBrowser chromeBrowser;
         private Uri _uri;
         private List<string> _listFiles;
-        public FormBrowser(Uri uri, List<string> listFiles)
+        public FormAwesomium(Uri uri, List<string> listFiles)
         {
-            _uri = uri;
-            _listFiles = listFiles;
             InitializeComponent();
-            InitializeChromium();
-        }
-        public void InitializeChromium()
-        {
-            chromeBrowser = new ChromiumWebBrowser();
-            chromeBrowser.DownloadHandler = new DownloadHandler();
-            chromeBrowser.IsBrowserInitializedChanged += ChromeBrowser_IsBrowserInitializedChanged;
-            chromeBrowser.Load(_uri.ToString());
-            this.Controls.Add(chromeBrowser);
-            chromeBrowser.Dock = DockStyle.Fill;
-        }
-
-        private void ChromeBrowser_IsBrowserInitializedChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void FormBrowser_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            chromeBrowser.Dispose();
+            _uri = uri;
+            webControl1.Source = _uri;
+            _listFiles = listFiles;
         }
 
         private void печатьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //chromeBrowser.Print();
-            chromeBrowser.PrintToPdfAsync(@"C:\Users\Alex\source\repos\TestJobForCITApp\TestJobForCITApp\bin\Debug\temp\1.pdf");
-        }
 
-        private void печатьToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
             string targetLocation = Directory.GetCurrentDirectory() + @"\temp";
             string outputPDF = Directory.GetCurrentDirectory() + @"\AllInOne.pdf";
             //удаляем временные файлы
@@ -67,11 +47,11 @@ namespace TestJobForCITApp
             }
 
             //Конвертируем XML в PDF
-            chromeBrowser.PrintToPdfAsync(outputPDF);
+            webControl1.PrintToFile(targetLocation, PrintConfig.Default);
             //Собираем все PDF в один
             String[] pathsOutPdfs = Directory.GetFiles(targetLocation);
             PdfDocument[] OutPdfs = new PdfDocument[pathsOutPdfs.Length];
-            PdfDocument AllInOnePdf = new PdfDocument(outputPDF);
+            PdfDocument AllInOnePdf = new PdfDocument();
             for (int i = 0; i < pathsOutPdfs.Length; i++)
             {
                 OutPdfs[i] = new PdfDocument(pathsOutPdfs[i]);
@@ -80,10 +60,22 @@ namespace TestJobForCITApp
             {
                 AllInOnePdf.AppendPage(OutPdfs[i]);
             }
-            AllInOnePdf.SaveToFile(outputPDF);
 
+            PrintDialog dialogPrint = new PrintDialog();
+            if (dialogPrint.ShowDialog() == DialogResult.OK)
+            {
+                //Set the pagenumber which you choose as the start page to print
+                AllInOnePdf.PrintFromPage = dialogPrint.PrinterSettings.FromPage;
+                //Set the pagenumber which you choose as the final page to print
+                AllInOnePdf.PrintToPage = dialogPrint.PrinterSettings.ToPage;
+                //Set the name of the printer which is to print the PDF
+                AllInOnePdf.PrinterName = dialogPrint.PrinterSettings.PrinterName;
 
-            chromeBrowser.Load(outputPDF);
+                PrintDocument printDoc = AllInOnePdf.PrintDocument;
+
+                dialogPrint.Document = printDoc;
+                printDoc.Print();
+            }
         }
     }
 }

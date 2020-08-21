@@ -40,6 +40,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Awesomium.Core, Version=1.7.5.0, Culture=neutral, PublicKeyToken=e1a0d7c8071a5214, processorArchitecture=x86">
+      <HintPath>..\packages\Awesomium.Windows.Forms.Unofficial.1.7.5.0\lib\Awesomium.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Awesomium.Windows.Forms, Version=1.7.5.0, Culture=neutral, PublicKeyToken=9bd24830fbe304a0, processorArchitecture=x86">
+      <HintPath>..\packages\Awesomium.Windows.Forms.Unofficial.1.7.5.0\lib\Awesomium.Windows.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="MimeMapping, Version=1.0.1.30, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MimeMapping.1.0.1.30\lib\netstandard2.0\MimeMapping.dll</HintPath>
     </Reference>
@@ -109,6 +115,12 @@
     <Compile Include="FormInsertName.Designer.cs">
       <DependentUpon>FormInsertName.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormAwesomium.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAwesomium.Designer.cs">
+      <DependentUpon>FormAwesomium.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormInsertName.resx">
       <DependentUpon>FormInsertName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAwesomium.resx">
+      <DependentUpon>FormAwesomium.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
