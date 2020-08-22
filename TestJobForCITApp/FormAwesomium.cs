@@ -1,13 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Drawing.Printing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Awesomium.Core;
 using Spire.Pdf;
@@ -28,13 +22,14 @@ namespace TestJobForCITApp
 
         private void печатьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            printPreviewControl1.Visible = true;
+            printPreviewControl1.Dock = DockStyle.Fill;
             string targetLocation = Directory.GetCurrentDirectory() + @"\temp";
-            string outputPDF = Directory.GetCurrentDirectory() + @"\AllInOne.pdf";
             //удаляем временные файлы
             if (Directory.Exists(targetLocation))
                 Directory.Delete(targetLocation, true);
             Directory.CreateDirectory(targetLocation);
+
             //Конвертируем файлы вложений в PDF
             FileHelper fileHelper = new FileHelper();
             foreach (string filePath in _listFiles)
@@ -48,34 +43,46 @@ namespace TestJobForCITApp
 
             //Конвертируем XML в PDF
             webControl1.PrintToFile(targetLocation, PrintConfig.Default);
-            //Собираем все PDF в один
-            String[] pathsOutPdfs = Directory.GetFiles(targetLocation);
-            PdfDocument[] OutPdfs = new PdfDocument[pathsOutPdfs.Length];
-            PdfDocument AllInOnePdf = new PdfDocument();
-            for (int i = 0; i < pathsOutPdfs.Length; i++)
+            webControl1.PrintComplete += (o, args) => 
             {
-                OutPdfs[i] = new PdfDocument(pathsOutPdfs[i]);
+                //Собираем все PDF в один
+
+                PdfDocument AllInOnePdf = UniteAllPdfInOne(targetLocation);
+                AllInOnePdf.PrintSettings.SelectMultiPageLayout(1, 2);
+                AllInOnePdf.PrintSettings.Landscape = true;
+                AllInOnePdf.Preview(this.printPreviewControl1);
+
+                PrintDialog dialogPrint = new PrintDialog();
+                /*if (dialogPrint.ShowDialog() == DialogResult.OK)
+                {
+                    AllInOnePdf.PrintFromPage = dialogPrint.PrinterSettings.FromPage;
+                    AllInOnePdf.PrintToPage = dialogPrint.PrinterSettings.ToPage;
+                    AllInOnePdf.PrinterName = dialogPrint.PrinterSettings.PrinterName;
+                    
+
+                    PrintDocument printDoc = AllInOnePdf.PrintDocument;
+                    dialogPrint.Document = printDoc;
+                    printDoc.Print();
+                }*/
+            };
+        }
+
+        private PdfDocument UniteAllPdfInOne(string targetLocation)
+        {
+            //Конвертируем XML в PDF
+            String[] pathsOutPdfs = Directory.GetFiles(targetLocation);
+            List<PdfDocument> OutPdfs = new List<PdfDocument>();
+            PdfDocument AllInOnePdf = new PdfDocument(pathsOutPdfs[0]);
+            for (int i = 1; i < pathsOutPdfs.Length; i++)
+            {
+                OutPdfs.Add(new PdfDocument(pathsOutPdfs[i]));
             }
-            for (int i = 0; i < pathsOutPdfs.Length; i++)
+            for (int i = 0; i < OutPdfs.Count; i++)
             {
                 AllInOnePdf.AppendPage(OutPdfs[i]);
             }
 
-            PrintDialog dialogPrint = new PrintDialog();
-            if (dialogPrint.ShowDialog() == DialogResult.OK)
-            {
-                //Set the pagenumber which you choose as the start page to print
-                AllInOnePdf.PrintFromPage = dialogPrint.PrinterSettings.FromPage;
-                //Set the pagenumber which you choose as the final page to print
-                AllInOnePdf.PrintToPage = dialogPrint.PrinterSettings.ToPage;
-                //Set the name of the printer which is to print the PDF
-                AllInOnePdf.PrinterName = dialogPrint.PrinterSettings.PrinterName;
-
-                PrintDocument printDoc = AllInOnePdf.PrintDocument;
-
-                dialogPrint.Document = printDoc;
-                printDoc.Print();
-            }
+            return AllInOnePdf;
         }
     }
 }
