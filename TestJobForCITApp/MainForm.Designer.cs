@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.textBoxField1 = new System.Windows.Forms.TextBox();
             this.labelField1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -70,20 +71,22 @@
             this.buttonAddFile = new System.Windows.Forms.Button();
             this.buttonDeleteFile = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.button1 = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.menuStripForTable.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBoxField1
             // 
             this.textBoxField1.Location = new System.Drawing.Point(56, 5);
             this.textBoxField1.Name = "textBoxField1";
-            this.textBoxField1.Size = new System.Drawing.Size(100, 20);
+            this.textBoxField1.Size = new System.Drawing.Size(267, 20);
             this.textBoxField1.TabIndex = 0;
             // 
             // labelField1
@@ -120,7 +123,7 @@
             this.panel1.Controls.Add(this.textBoxField1);
             this.panel1.Location = new System.Drawing.Point(12, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(171, 266);
+            this.panel1.Size = new System.Drawing.Size(348, 266);
             this.panel1.TabIndex = 2;
             // 
             // labelField10
@@ -136,7 +139,7 @@
             // 
             this.textBoxField10.Location = new System.Drawing.Point(56, 239);
             this.textBoxField10.Name = "textBoxField10";
-            this.textBoxField10.Size = new System.Drawing.Size(100, 20);
+            this.textBoxField10.Size = new System.Drawing.Size(267, 20);
             this.textBoxField10.TabIndex = 18;
             // 
             // labelField9
@@ -152,7 +155,7 @@
             // 
             this.textBoxField9.Location = new System.Drawing.Point(56, 213);
             this.textBoxField9.Name = "textBoxField9";
-            this.textBoxField9.Size = new System.Drawing.Size(100, 20);
+            this.textBoxField9.Size = new System.Drawing.Size(267, 20);
             this.textBoxField9.TabIndex = 16;
             // 
             // labelField8
@@ -168,7 +171,7 @@
             // 
             this.textBoxField8.Location = new System.Drawing.Point(56, 187);
             this.textBoxField8.Name = "textBoxField8";
-            this.textBoxField8.Size = new System.Drawing.Size(100, 20);
+            this.textBoxField8.Size = new System.Drawing.Size(267, 20);
             this.textBoxField8.TabIndex = 14;
             // 
             // labelField7
@@ -184,7 +187,7 @@
             // 
             this.textBoxField7.Location = new System.Drawing.Point(56, 161);
             this.textBoxField7.Name = "textBoxField7";
-            this.textBoxField7.Size = new System.Drawing.Size(100, 20);
+            this.textBoxField7.Size = new System.Drawing.Size(267, 20);
             this.textBoxField7.TabIndex = 12;
             // 
             // labelField6
@@ -200,7 +203,7 @@
             // 
             this.textBoxField6.Location = new System.Drawing.Point(56, 135);
             this.textBoxField6.Name = "textBoxField6";
-            this.textBoxField6.Size = new System.Drawing.Size(100, 20);
+            this.textBoxField6.Size = new System.Drawing.Size(267, 20);
             this.textBoxField6.TabIndex = 10;
             // 
             // labelField5
@@ -216,7 +219,7 @@
             // 
             this.textBoxField5.Location = new System.Drawing.Point(56, 109);
             this.textBoxField5.Name = "textBoxField5";
-            this.textBoxField5.Size = new System.Drawing.Size(100, 20);
+            this.textBoxField5.Size = new System.Drawing.Size(267, 20);
             this.textBoxField5.TabIndex = 8;
             // 
             // labelField4
@@ -232,7 +235,7 @@
             // 
             this.textBoxField4.Location = new System.Drawing.Point(56, 83);
             this.textBoxField4.Name = "textBoxField4";
-            this.textBoxField4.Size = new System.Drawing.Size(100, 20);
+            this.textBoxField4.Size = new System.Drawing.Size(267, 20);
             this.textBoxField4.TabIndex = 6;
             // 
             // labelField3
@@ -248,7 +251,7 @@
             // 
             this.textBoxField3.Location = new System.Drawing.Point(56, 57);
             this.textBoxField3.Name = "textBoxField3";
-            this.textBoxField3.Size = new System.Drawing.Size(100, 20);
+            this.textBoxField3.Size = new System.Drawing.Size(267, 20);
             this.textBoxField3.TabIndex = 4;
             // 
             // labelField2
@@ -264,7 +267,7 @@
             // 
             this.textBoxField2.Location = new System.Drawing.Point(56, 31);
             this.textBoxField2.Name = "textBoxField2";
-            this.textBoxField2.Size = new System.Drawing.Size(100, 20);
+            this.textBoxField2.Size = new System.Drawing.Size(267, 20);
             this.textBoxField2.TabIndex = 2;
             // 
             // menuStripMain
@@ -274,7 +277,7 @@
             this.заполнитьТестовымиToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
-            this.menuStripMain.Size = new System.Drawing.Size(1248, 24);
+            this.menuStripMain.Size = new System.Drawing.Size(909, 24);
             this.menuStripMain.TabIndex = 3;
             this.menuStripMain.Text = "menuStrip1";
             // 
@@ -299,7 +302,7 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 24);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(743, 232);
+            this.dataGridView1.Size = new System.Drawing.Size(580, 232);
             this.dataGridView1.TabIndex = 4;
             this.dataGridView1.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellEnter);
             this.dataGridView1.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellLeave);
@@ -342,9 +345,9 @@
             this.panel2.Controls.Add(this.listBoxTables);
             this.panel2.Controls.Add(this.buttonAddTable);
             this.panel2.Controls.Add(this.buttonDeleteTable);
-            this.panel2.Location = new System.Drawing.Point(189, 27);
+            this.panel2.Location = new System.Drawing.Point(12, 299);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1044, 266);
+            this.panel2.Size = new System.Drawing.Size(886, 266);
             this.panel2.TabIndex = 8;
             // 
             // buttonRenameTable
@@ -364,7 +367,7 @@
             this.panel3.Controls.Add(this.menuStripForTable);
             this.panel3.Location = new System.Drawing.Point(298, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(743, 256);
+            this.panel3.Size = new System.Drawing.Size(580, 256);
             this.panel3.TabIndex = 9;
             // 
             // menuStripForTable
@@ -376,7 +379,7 @@
             this.удалитьToolStripMenuItem});
             this.menuStripForTable.Location = new System.Drawing.Point(0, 0);
             this.menuStripForTable.Name = "menuStripForTable";
-            this.menuStripForTable.Size = new System.Drawing.Size(743, 24);
+            this.menuStripForTable.Size = new System.Drawing.Size(580, 24);
             this.menuStripForTable.TabIndex = 5;
             this.menuStripForTable.Text = "menuStrip2";
             // 
@@ -422,16 +425,16 @@
             // listBoxFiles
             // 
             this.listBoxFiles.FormattingEnabled = true;
-            this.listBoxFiles.Location = new System.Drawing.Point(12, 352);
+            this.listBoxFiles.Location = new System.Drawing.Point(7, 43);
             this.listBoxFiles.Name = "listBoxFiles";
-            this.listBoxFiles.Size = new System.Drawing.Size(470, 173);
+            this.listBoxFiles.Size = new System.Drawing.Size(520, 212);
             this.listBoxFiles.TabIndex = 9;
             this.listBoxFiles.SelectedIndexChanged += new System.EventHandler(this.listBoxFiles_SelectedIndexChanged);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(12, 327);
+            this.label10.Location = new System.Drawing.Point(7, 18);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(44, 13);
             this.label10.TabIndex = 10;
@@ -439,7 +442,7 @@
             // 
             // buttonAddFile
             // 
-            this.buttonAddFile.Location = new System.Drawing.Point(69, 322);
+            this.buttonAddFile.Location = new System.Drawing.Point(64, 13);
             this.buttonAddFile.Name = "buttonAddFile";
             this.buttonAddFile.Size = new System.Drawing.Size(100, 23);
             this.buttonAddFile.TabIndex = 11;
@@ -450,7 +453,7 @@
             // buttonDeleteFile
             // 
             this.buttonDeleteFile.Enabled = false;
-            this.buttonDeleteFile.Location = new System.Drawing.Point(175, 322);
+            this.buttonDeleteFile.Location = new System.Drawing.Point(170, 13);
             this.buttonDeleteFile.Name = "buttonDeleteFile";
             this.buttonDeleteFile.Size = new System.Drawing.Size(100, 23);
             this.buttonDeleteFile.TabIndex = 12;
@@ -462,30 +465,34 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // button1
+            // contextMenuStrip1
             // 
-            this.button1.Location = new System.Drawing.Point(536, 321);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // panel4
+            // 
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel4.Controls.Add(this.buttonAddFile);
+            this.panel4.Controls.Add(this.listBoxFiles);
+            this.panel4.Controls.Add(this.buttonDeleteFile);
+            this.panel4.Controls.Add(this.label10);
+            this.panel4.Location = new System.Drawing.Point(366, 27);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(532, 265);
+            this.panel4.TabIndex = 13;
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Honeydew;
-            this.ClientSize = new System.Drawing.Size(1248, 746);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.buttonDeleteFile);
-            this.Controls.Add(this.buttonAddFile);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.listBoxFiles);
+            this.ClientSize = new System.Drawing.Size(909, 573);
+            this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStripMain);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStripMain;
             this.Name = "FormMain";
             this.Text = "Тестовое задание для ЦИТ";
@@ -499,6 +506,8 @@
             this.panel3.PerformLayout();
             this.menuStripForTable.ResumeLayout(false);
             this.menuStripForTable.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -548,7 +557,8 @@
         private System.Windows.Forms.Button buttonDeleteFile;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolStripMenuItem заполнитьТестовымиToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Panel panel4;
     }
 }
 

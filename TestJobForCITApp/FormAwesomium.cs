@@ -59,13 +59,13 @@ namespace TestJobForCITApp
             //Собираем все PDF в один
             webControl1.PrintComplete -= WebControl1OnPrintComplete;
             PdfDocument AllInOnePdf = UniteAllPdfInOne();
-            AllInOnePdf.PrintSettings.SelectMultiPageLayout(1, 2);
-            AllInOnePdf.PrintSettings.Landscape = true;
+            /*AllInOnePdf.PrintSettings.SelectMultiPageLayout(1, 2);
+            AllInOnePdf.PrintSettings.Landscape = true;*/
             //AllInOnePdf.Preview(this.printPreviewControl1);
             FormPrintDialogForPdf dialogForPdf = new FormPrintDialogForPdf(AllInOnePdf);
             dialogForPdf.ShowDialog();
             PrintDialog dialogPrint = new PrintDialog();
-            if (dialogPrint.ShowDialog() == DialogResult.OK)
+            /*if (dialogPrint.ShowDialog() == DialogResult.OK)
             {
                 AllInOnePdf.PrintFromPage = dialogPrint.PrinterSettings.FromPage;
                 AllInOnePdf.PrintToPage = dialogPrint.PrinterSettings.ToPage;
@@ -74,8 +74,8 @@ namespace TestJobForCITApp
 
                 /*PrintDocument printDoc = AllInOnePdf.PrintDocument;
                 dialogPrint.Document = printDoc;
-                printDoc.Print();*/
-            }
+                printDoc.Print();
+            }*/
         }
         private PdfDocument UniteAllPdfInOne()
         {
