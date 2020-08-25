@@ -16,19 +16,40 @@ namespace TestJobForCITApp
     {
         private PdfDocument _document;
 
-        public FormPrintPreview(PdfDocument document)
+        public FormPrintPreview(PdfDocument document, int CountOfPages)
         {
             InitializeComponent();
             _document = document;
-            //_document.Preview(pdfDocumentViewer1);
-            Stream[] streamPdf = _document.SaveToStream(FileFormat.PDF);
+            _document.Preview(printPreviewControl1);
+            /*Stream[] streamPdf = _document.SaveToStream(FileFormat.PDF);
             pdfDocumentViewer1.LoadFromStream(streamPdf[0]);
-            //pdfDocumentViewer1.PrintSettings.
+            pdfDocumentViewer1.PrintSettings.Copies = document.PrintSettings.Copies;
+            pdfDocumentViewer1.PrintSettings.Landscape = document.PrintSettings.Landscape;
+            pdfDocumentViewer1.PrintSettings.SelectPageRange(
+                _document.PrintSettings.PrintFromPage, 
+                _document.PrintSettings.PrintToPage);*/
+            if (CountOfPages == 1)
+                printPreviewControl1.Columns = 1;
+            else
+            {
+                printPreviewControl1.Columns = 2;
+            }
+            printPreviewControl1.Rows = CountOfPages / 2+1;
+
+
+
         }                                                                                                                                                                                                                                                                                                       
 
         private void печатьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _document.Print();
+            try
+            {
+                _document.Print();
+            }
+            catch (Exception exception)
+            {
+               
+            }
         }
 
         private void закрытьToolStripMenuItem_Click(object sender, EventArgs e)

@@ -49,7 +49,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.radioButtonLandscape = new System.Windows.Forms.RadioButton();
-            this.radioButton = new System.Windows.Forms.RadioButton();
+            this.radioButtonPortrait = new System.Windows.Forms.RadioButton();
             this.label8 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.распечататьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -162,7 +162,7 @@
             0,
             0,
             0});
-            this.numericUpDownTo.ValueChanged += new System.EventHandler(this.numericUpDownTo_ValueChanged);
+            this.numericUpDownTo.ValueChanged += new System.EventHandler(this.numericUpDownRange_ValueChanged);
             // 
             // numericUpDownFrom
             // 
@@ -182,7 +182,7 @@
             0,
             0,
             0});
-            this.numericUpDownFrom.ValueChanged += new System.EventHandler(this.numericUpDownFrom_ValueChanged);
+            this.numericUpDownFrom.ValueChanged += new System.EventHandler(this.numericUpDownRange_ValueChanged);
             // 
             // label5
             // 
@@ -267,6 +267,7 @@
             0,
             0,
             0});
+            this.numericUpDownColumns.ValueChanged += new System.EventHandler(this.numericUpDownRows_ValueChanged);
             // 
             // numericUpDownRows
             // 
@@ -286,6 +287,7 @@
             0,
             0,
             0});
+            this.numericUpDownRows.ValueChanged += new System.EventHandler(this.numericUpDownRows_ValueChanged);
             // 
             // labelx
             // 
@@ -298,6 +300,7 @@
             // 
             // comboBoxSheetsPerList
             // 
+            this.comboBoxSheetsPerList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSheetsPerList.FormattingEnabled = true;
             this.comboBoxSheetsPerList.Items.AddRange(new object[] {
             "1",
@@ -326,7 +329,7 @@
             // 
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.radioButtonLandscape);
-            this.panel5.Controls.Add(this.radioButton);
+            this.panel5.Controls.Add(this.radioButtonPortrait);
             this.panel5.Controls.Add(this.label8);
             this.panel5.Location = new System.Drawing.Point(3, 221);
             this.panel5.Name = "panel5";
@@ -345,16 +348,16 @@
             this.radioButtonLandscape.UseVisualStyleBackColor = true;
             this.radioButtonLandscape.CheckedChanged += new System.EventHandler(this.radioButtonLandscape_CheckedChanged);
             // 
-            // radioButton
+            // radioButtonPortrait
             // 
-            this.radioButton.AutoSize = true;
-            this.radioButton.Location = new System.Drawing.Point(8, 36);
-            this.radioButton.Name = "radioButton";
-            this.radioButton.Size = new System.Drawing.Size(85, 17);
-            this.radioButton.TabIndex = 1;
-            this.radioButton.TabStop = true;
-            this.radioButton.Text = "Портретная";
-            this.radioButton.UseVisualStyleBackColor = true;
+            this.radioButtonPortrait.AutoSize = true;
+            this.radioButtonPortrait.Location = new System.Drawing.Point(8, 36);
+            this.radioButtonPortrait.Name = "radioButtonPortrait";
+            this.radioButtonPortrait.Size = new System.Drawing.Size(85, 17);
+            this.radioButtonPortrait.TabIndex = 1;
+            this.radioButtonPortrait.TabStop = true;
+            this.radioButtonPortrait.Text = "Портретная";
+            this.radioButtonPortrait.UseVisualStyleBackColor = true;
             // 
             // label8
             // 
@@ -381,21 +384,21 @@
             // распечататьToolStripMenuItem
             // 
             this.распечататьToolStripMenuItem.Name = "распечататьToolStripMenuItem";
-            this.распечататьToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
+            this.распечататьToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
             this.распечататьToolStripMenuItem.Text = "Распечатать";
             this.распечататьToolStripMenuItem.Click += new System.EventHandler(this.распечататьToolStripMenuItem_Click);
             // 
             // предварительынйПросмотрToolStripMenuItem
             // 
             this.предварительынйПросмотрToolStripMenuItem.Name = "предварительынйПросмотрToolStripMenuItem";
-            this.предварительынйПросмотрToolStripMenuItem.Size = new System.Drawing.Size(178, 20);
+            this.предварительынйПросмотрToolStripMenuItem.Size = new System.Drawing.Size(163, 20);
             this.предварительынйПросмотрToolStripMenuItem.Text = "Предварительынй просмотр";
             this.предварительынйПросмотрToolStripMenuItem.Click += new System.EventHandler(this.предварительынйПросмотрToolStripMenuItem_Click);
             // 
             // отменаToolStripMenuItem
             // 
             this.отменаToolStripMenuItem.Name = "отменаToolStripMenuItem";
-            this.отменаToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.отменаToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.отменаToolStripMenuItem.Text = "Отмена";
             // 
             // panel3
@@ -463,7 +466,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDownFrom;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.RadioButton radioButtonLandscape;
-        private System.Windows.Forms.RadioButton radioButton;
+        private System.Windows.Forms.RadioButton radioButtonPortrait;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.NumericUpDown numericUpDownColumns;
         private System.Windows.Forms.NumericUpDown numericUpDownRows;

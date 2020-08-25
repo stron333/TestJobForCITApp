@@ -31,7 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.печатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.закрытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pdfDocumentViewer1 = new Spire.PdfViewer.Forms.PdfDocumentViewer();
+            this.printPreviewControl1 = new System.Windows.Forms.PrintPreviewControl();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,36 +49,31 @@
             // печатьToolStripMenuItem
             // 
             this.печатьToolStripMenuItem.Name = "печатьToolStripMenuItem";
-            this.печатьToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.печатьToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
             this.печатьToolStripMenuItem.Text = "Печать";
             this.печатьToolStripMenuItem.Click += new System.EventHandler(this.печатьToolStripMenuItem_Click);
             // 
             // закрытьToolStripMenuItem
             // 
             this.закрытьToolStripMenuItem.Name = "закрытьToolStripMenuItem";
-            this.закрытьToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.закрытьToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.закрытьToolStripMenuItem.Text = "Закрыть";
             this.закрытьToolStripMenuItem.Click += new System.EventHandler(this.закрытьToolStripMenuItem_Click);
             // 
-            // pdfDocumentViewer1
+            // printPreviewControl1
             // 
-            this.pdfDocumentViewer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
-            this.pdfDocumentViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pdfDocumentViewer1.Location = new System.Drawing.Point(0, 24);
-            this.pdfDocumentViewer1.MultiPagesThreshold = 60;
-            this.pdfDocumentViewer1.Name = "pdfDocumentViewer1";
-            this.pdfDocumentViewer1.Size = new System.Drawing.Size(802, 586);
-            this.pdfDocumentViewer1.TabIndex = 1;
-            this.pdfDocumentViewer1.Text = "pdfDocumentViewer1";
-            this.pdfDocumentViewer1.Threshold = 60;
-            this.pdfDocumentViewer1.ZoomMode = Spire.PdfViewer.Forms.ZoomMode.Default;
+            this.printPreviewControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.printPreviewControl1.Location = new System.Drawing.Point(0, 24);
+            this.printPreviewControl1.Name = "printPreviewControl1";
+            this.printPreviewControl1.Size = new System.Drawing.Size(802, 586);
+            this.printPreviewControl1.TabIndex = 1;
             // 
             // FormPrintPreview
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(802, 610);
-            this.Controls.Add(this.pdfDocumentViewer1);
+            this.Controls.Add(this.printPreviewControl1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPrintPreview";
@@ -95,6 +90,6 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem печатьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem закрытьToolStripMenuItem;
-        private Spire.PdfViewer.Forms.PdfDocumentViewer pdfDocumentViewer1;
+        private System.Windows.Forms.PrintPreviewControl printPreviewControl1;
     }
 }
