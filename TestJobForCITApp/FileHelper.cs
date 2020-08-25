@@ -80,7 +80,7 @@ namespace TestJobForCITApp
                         {
                             string file = Path.Combine(targetLocation, fileName + ".pdf");
 
-                            Spire.Doc.Document document = new Spire.Doc.Document();
+                            Document document = new Spire.Doc.Document();
                             document.LoadFromFile(sourcePath, Spire.Doc.FileFormat.Auto);
                             document.SaveToFile(file, Spire.Doc.FileFormat.PDF);
                         }

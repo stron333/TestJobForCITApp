@@ -169,6 +169,7 @@ namespace TestJobForCITApp
 
         private void распечататьToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            _document.PrintSettings.Copies = 4;
             _document.Print();
         }
 
