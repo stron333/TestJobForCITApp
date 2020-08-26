@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Awesomium.Core;
 using Spire.Pdf;
@@ -12,6 +13,8 @@ namespace TestJobForCITApp
         private Uri _uri;
         private List<string> _listFiles;
         private string tempLocation;
+        private PdfDocument _AllInOnePdf;
+        private bool isWebControl1PrintComplete;
         public FormAwesomium(Uri uri, List<string> listFiles)
         {
             InitializeComponent();
@@ -21,9 +24,9 @@ namespace TestJobForCITApp
             tempLocation = Directory.GetCurrentDirectory() + @"\temp";
         }
 
-        private void печатьToolStripMenuItem_Click(object sender, EventArgs e)
+
+        private void MakeAllInOnePdf()
         {
-            //удаляем временные файлы
             if (Directory.Exists(tempLocation))
                 Directory.Delete(tempLocation, true);
             Directory.CreateDirectory(tempLocation + "\\allInOne");
@@ -40,30 +43,24 @@ namespace TestJobForCITApp
             }
             //Конвертируем XML в PDF
             webControl1.PrintComplete += WebControl1OnPrintComplete;
-            webControl1.PrintToFile(tempLocation+"\\allInOne", PrintConfig.Default);
+            webControl1.PrintToFile(tempLocation + "\\allInOne", PrintConfig.Default);
+            _AllInOnePdf = UniteAllPdfInOne();
         }
-
-
-
         private void WebControl1OnPrintComplete(object sender, PrintCompleteEventArgs e)
         {
-            PrintAllInOnePDF();
-        }
-
-
-
-        private void PrintAllInOnePDF()
-        {
-            //Собираем все PDF в один
             webControl1.PrintComplete -= WebControl1OnPrintComplete;
-            PdfDocument AllInOnePdf = UniteAllPdfInOne();
-            using (FormPrintDialogForPdf dialogForPdf = new FormPrintDialogForPdf(AllInOnePdf))
-            {
-                dialogForPdf.ShowDialog();
-            }
         }
+       
         private PdfDocument UniteAllPdfInOne()
         {
+            while (true)
+            {
+                string [] files = Directory.GetFiles(tempLocation + "\\allInOne");
+                if (files.Length != 0)
+                {
+                    break;
+                }
+            }
             //Конвертируем XML в PDF
             String[] pathsOutPdfs = Directory.GetFiles(tempLocation);
             List<PdfDocument> OutPdfs = new List<PdfDocument>();
@@ -77,6 +74,30 @@ namespace TestJobForCITApp
                 AllInOnePdf.AppendPage(OutPdfs[i]);
             }
             return AllInOnePdf;
+        }
+
+        private void печатьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_AllInOnePdf == null)
+                MakeAllInOnePdf();
+            using (FormPrintDialogForPdf dialogForPdf = new FormPrintDialogForPdf(_AllInOnePdf))
+            {
+                dialogForPdf.ShowDialog();
+            }
+        }
+
+        private void сохранитьВPDFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_AllInOnePdf == null)
+                MakeAllInOnePdf();
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "Pdf Files|*.pdf";
+            if (dialog.ShowDialog() == DialogResult.Cancel)
+                return;
+            // получаем выбранный файл
+            string filename = dialog.FileName;
+            _AllInOnePdf.SaveToFile(filename);
+
         }
     }
 }

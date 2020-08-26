@@ -43,5 +43,10 @@ namespace TestJobForCITApp
         {
             this.Dispose();
         }
+
+        private void сохранитьВPDFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

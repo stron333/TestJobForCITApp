@@ -293,7 +293,6 @@
             this.заполнитьТестовымиToolStripMenuItem.Name = "заполнитьТестовымиToolStripMenuItem";
             this.заполнитьТестовымиToolStripMenuItem.Size = new System.Drawing.Size(141, 20);
             this.заполнитьТестовымиToolStripMenuItem.Text = "Заполнить тестовыми";
-            this.заполнитьТестовымиToolStripMenuItem.Visible = false;
             this.заполнитьТестовымиToolStripMenuItem.Click += new System.EventHandler(this.заполнитьТестовымиToolStripMenuItem_Click);
             // 
             // dataGridView1
