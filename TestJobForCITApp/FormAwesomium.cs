@@ -19,6 +19,7 @@ namespace TestJobForCITApp
             webControl1.Source = _uri;
             _listFiles = listFiles;
             tempLocation = Directory.GetCurrentDirectory() + @"\temp";
+            var temp = "";
         }
 
         private void печатьToolStripMenuItem_Click(object sender, EventArgs e)
