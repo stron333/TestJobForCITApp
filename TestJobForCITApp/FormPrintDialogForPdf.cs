@@ -15,9 +15,10 @@ namespace TestJobForCITApp
         public FormPrintDialogForPdf(PdfDocument document)
         {
             InitializeComponent();
-            document.SaveToFile(Directory.GetCurrentDirectory()+"\\temp.pdf", FileFormat.PDF);
+            /*document.SaveToFile(Directory.GetCurrentDirectory()+"\\temp.pdf", FileFormat.PDF);
             _document = new PdfDocument(Directory.GetCurrentDirectory() + "\\temp.pdf");
-            File.Delete(Directory.GetCurrentDirectory() + "\\temp.pdf");
+            File.Delete(Directory.GetCurrentDirectory() + "\\temp.pdf");            */
+            _document = document;
             List<string> printersList = new List<string>();
             PrinterSettings.StringCollection sc = PrinterSettings.InstalledPrinters;
             PrinterSettings settings = new PrinterSettings();
@@ -39,13 +40,13 @@ namespace TestJobForCITApp
                 radioButtonPortrait.Checked = true;
             }
             
-
             if (_document.Pages.Count <= 1)
             {
                 radioButtonRange.Enabled = false;
             }
             _document.PrintSettings.SelectPageRange(1, _document.Pages.Count);
             comboBoxSheetsPerList.SelectedIndex = 0;
+            
         }
 
         
@@ -75,7 +76,7 @@ namespace TestJobForCITApp
             }
         }
 
- 
+        
 
 
 
@@ -137,6 +138,7 @@ namespace TestJobForCITApp
             numericUpDownRows.Text = rows.ToString();
             numericUpDownColumns.Text = columns.ToString();
             radioButtonLandscape.Checked = _document.PrintSettings.Landscape;
+            
         }
 
         private void numericUpDownRows_ValueChanged(object sender, EventArgs e)
@@ -144,6 +146,8 @@ namespace TestJobForCITApp
             _document.PrintSettings.SelectMultiPageLayout(
                 (int)numericUpDownRows.Value,
                 (int)numericUpDownColumns.Value);
+            
+
         }
 
         private void comboBoxPrintersList_SelectedIndexChanged(object sender, EventArgs e)
@@ -161,9 +165,11 @@ namespace TestJobForCITApp
             numericUpDownTo.Minimum = (int) numericUpDownFrom.Value;
             numericUpDownFrom.Maximum = (int)numericUpDownTo.Value;
             _document.PrintSettings.SelectPageRange((int)numericUpDownFrom.Value, (int)numericUpDownTo.Value);
+            
+
         }
 
-        
+
 
         private void radioButtonAllPage_CheckedChanged(object sender, EventArgs e)
         {
@@ -182,7 +188,7 @@ namespace TestJobForCITApp
             }
 
             radioButtonPortrait.Checked = !radioButtonLandscape.Checked;
-
+            
         }
 
         private void распечататьToolStripMenuItem_Click(object sender, EventArgs e)

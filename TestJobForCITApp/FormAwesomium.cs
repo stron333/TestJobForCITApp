@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing.Printing;
 using System.IO;
 using System.Windows.Forms;
 using Awesomium.Core;
@@ -24,8 +23,6 @@ namespace TestJobForCITApp
 
         private void печатьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-             
             //удаляем временные файлы
             if (Directory.Exists(tempLocation))
                 Directory.Delete(tempLocation, true);
@@ -41,11 +38,12 @@ namespace TestJobForCITApp
                 string contentType = MimeMapping.MimeUtility.GetMimeMapping(file.ToString());
                 fileHelper.ConvertToPDF(sourceFilePath, contentType, fileName, tempLocation);
             }
-
             //Конвертируем XML в PDF
             webControl1.PrintToFile(tempLocation, PrintConfig.Default);
             webControl1.PrintComplete += WebControl1OnPrintComplete;
         }
+
+
 
         private void WebControl1OnPrintComplete(object sender, PrintCompleteEventArgs e)
         {
@@ -59,23 +57,10 @@ namespace TestJobForCITApp
             //Собираем все PDF в один
             webControl1.PrintComplete -= WebControl1OnPrintComplete;
             PdfDocument AllInOnePdf = UniteAllPdfInOne();
-            /*AllInOnePdf.PrintSettings.SelectMultiPageLayout(1, 2);
-            AllInOnePdf.PrintSettings.Landscape = true;*/
-            //AllInOnePdf.Preview(this.printPreviewControl1);
-            FormPrintDialogForPdf dialogForPdf = new FormPrintDialogForPdf(AllInOnePdf);
-            dialogForPdf.ShowDialog();
-            PrintDialog dialogPrint = new PrintDialog();
-            /*if (dialogPrint.ShowDialog() == DialogResult.OK)
+            using (FormPrintDialogForPdf dialogForPdf = new FormPrintDialogForPdf(AllInOnePdf))
             {
-                AllInOnePdf.PrintFromPage = dialogPrint.PrinterSettings.FromPage;
-                AllInOnePdf.PrintToPage = dialogPrint.PrinterSettings.ToPage;
-                AllInOnePdf.PrinterName = dialogPrint.PrinterSettings.PrinterName;
-                AllInOnePdf.Print();
-
-                /*PrintDocument printDoc = AllInOnePdf.PrintDocument;
-                dialogPrint.Document = printDoc;
-                printDoc.Print();
-            }*/
+                dialogForPdf.ShowDialog();
+            }
         }
         private PdfDocument UniteAllPdfInOne()
         {

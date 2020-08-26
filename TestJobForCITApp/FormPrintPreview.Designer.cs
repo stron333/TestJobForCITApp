@@ -49,8 +49,8 @@
             // печатьToolStripMenuItem
             // 
             this.печатьToolStripMenuItem.Name = "печатьToolStripMenuItem";
-            this.печатьToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
-            this.печатьToolStripMenuItem.Text = "Печать";
+            this.печатьToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.печатьToolStripMenuItem.Text = "Распечатать";
             this.печатьToolStripMenuItem.Click += new System.EventHandler(this.печатьToolStripMenuItem_Click);
             // 
             // закрытьToolStripMenuItem
@@ -78,6 +78,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormPrintPreview";
             this.Text = "Предварительный просмотр";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormPrintPreview_FormClosed);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

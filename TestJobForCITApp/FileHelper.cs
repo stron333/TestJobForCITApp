@@ -3,9 +3,11 @@ using Spire.Pdf.Graphics;
 using Spire.Pdf.HtmlConverter;
 using Spire.Presentation;
 using System;
+using System.Drawing;
 using System.IO;
 using System.Threading;
 using Spire.Doc;
+using FileFormat = Spire.Xls.FileFormat;
 
 namespace TestJobForCITApp
 {
@@ -96,11 +98,37 @@ namespace TestJobForCITApp
                         }
                     }
                         break;
-                    case "application/html":
                     case "application/txt":
+                    case "text/plain":
+                        {
+                            if (!string.IsNullOrEmpty(targetLocation) && !string.IsNullOrEmpty(fileName))
+                            {
+                                string file = Path.Combine(targetLocation, fileName + ".pdf");
+                                string text = File.ReadAllText(sourcePath);
+                                PdfDocument doc = new PdfDocument();
+                                PdfSection section = doc.Sections.Add();
+                                PdfPageBase page = section.Pages.Add();
+                                //PdfFont font = new PdfFont(PdfFontFamily.Helvetica, 11);
+                                PdfTrueTypeFont font = new PdfTrueTypeFont(new Font("Helvetica", 11f), true);
+
+                                PdfStringFormat format = new PdfStringFormat();
+                                format.LineSpacing = 20f;
+                                PdfBrush brush = PdfBrushes.Black;
+                                PdfTextWidget textWidget = new PdfTextWidget(text, font, brush);
+                                float y = 0;
+                                PdfTextLayout textLayout = new PdfTextLayout();
+                                textLayout.Break = PdfLayoutBreakType.FitPage;
+                                textLayout.Layout = PdfLayoutType.Paginate;
+                                RectangleF bounds = new RectangleF(new PointF(0, y), page.Canvas.ClientSize);
+                                textWidget.StringFormat = format;
+                                textWidget.Draw(page, bounds, textLayout);
+                                doc.SaveToFile(file, Spire.Pdf.FileFormat.PDF);
+                            }
+                        }
+                        break;
+                    case "application/html":
                     case "application/htm":
                     case "text/html":
-                    case "text/plain":
                         if (!string.IsNullOrEmpty(targetLocation) && !string.IsNullOrEmpty(fileName))
                         {
                             string file = Path.Combine(targetLocation, fileName + ".pdf");

@@ -56,6 +56,7 @@
             this.предварительынйПросмотрToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отменаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.pdfDocumentViewer1 = new Spire.PdfViewer.Forms.PdfDocumentViewer();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCopies)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -377,7 +378,7 @@
             this.отменаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(424, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(428, 24);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -413,11 +414,24 @@
             this.panel3.Size = new System.Drawing.Size(404, 298);
             this.panel3.TabIndex = 13;
             // 
+            // pdfDocumentViewer1
+            // 
+            this.pdfDocumentViewer1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(229)))), ((int)(((byte)(229)))));
+            this.pdfDocumentViewer1.Location = new System.Drawing.Point(526, 27);
+            this.pdfDocumentViewer1.MultiPagesThreshold = 60;
+            this.pdfDocumentViewer1.Name = "pdfDocumentViewer1";
+            this.pdfDocumentViewer1.Size = new System.Drawing.Size(404, 298);
+            this.pdfDocumentViewer1.TabIndex = 14;
+            this.pdfDocumentViewer1.Text = "pdfDocumentViewer1";
+            this.pdfDocumentViewer1.Threshold = 60;
+            this.pdfDocumentViewer1.ZoomMode = Spire.PdfViewer.Forms.ZoomMode.Default;
+            // 
             // FormPrintDialogForPdf
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 335);
+            this.ClientSize = new System.Drawing.Size(428, 335);
+            this.Controls.Add(this.pdfDocumentViewer1);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -475,5 +489,6 @@
         private System.Windows.Forms.ToolStripMenuItem предварительынйПросмотрToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem отменаToolStripMenuItem;
         private System.Windows.Forms.Panel panel3;
+        private Spire.PdfViewer.Forms.PdfDocumentViewer pdfDocumentViewer1;
     }
 }
