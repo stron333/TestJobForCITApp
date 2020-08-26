@@ -1,5 +1,0 @@
-Классы StringBuilder и String предоставляют достаточную функциональность для работы со строками. Однако .NET предлагает еще один мощный инструмент - регулярные выражения. Регулярные выражения представляют эффективный и гибкий метод по обработке больших текстов, позволяя в то же время существенно уменьшить объемы кода по сравнению с использованием стандартных операций со строками.
-
-Основная функциональность регулярных выражений в .NET сосредоточена в пространстве имен System.Text.RegularExpressions. А центральным классом при работе с регулярными выражениями является класс Regex. Например, у нас есть некоторый текст и нам надо найти в нем все словоформы какого-нибудь слова. С классом Regex это сделать очень просто:
-
-Spire.PDF has a powerful function to print PDF document. We have done some adjustments by the code to print the PDF files. If you are using the Spire.PDF Version before 3.9.360, please refer to tutorial here for print the PDF files in C#. From Spire.PDF v 3.9.360, you should use the new method offers in this article. This example shows how to print a PDF file using C# via the following print methods:
