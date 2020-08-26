@@ -385,21 +385,21 @@
             // распечататьToolStripMenuItem
             // 
             this.распечататьToolStripMenuItem.Name = "распечататьToolStripMenuItem";
-            this.распечататьToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.распечататьToolStripMenuItem.Size = new System.Drawing.Size(86, 20);
             this.распечататьToolStripMenuItem.Text = "Распечатать";
             this.распечататьToolStripMenuItem.Click += new System.EventHandler(this.распечататьToolStripMenuItem_Click);
             // 
             // предварительынйПросмотрToolStripMenuItem
             // 
             this.предварительынйПросмотрToolStripMenuItem.Name = "предварительынйПросмотрToolStripMenuItem";
-            this.предварительынйПросмотрToolStripMenuItem.Size = new System.Drawing.Size(163, 20);
+            this.предварительынйПросмотрToolStripMenuItem.Size = new System.Drawing.Size(178, 20);
             this.предварительынйПросмотрToolStripMenuItem.Text = "Предварительынй просмотр";
             this.предварительынйПросмотрToolStripMenuItem.Click += new System.EventHandler(this.предварительынйПросмотрToolStripMenuItem_Click);
             // 
             // отменаToolStripMenuItem
             // 
             this.отменаToolStripMenuItem.Name = "отменаToolStripMenuItem";
-            this.отменаToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.отменаToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.отменаToolStripMenuItem.Text = "Отмена";
             // 
             // panel3
@@ -430,6 +430,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(428, 335);
             this.Controls.Add(this.pdfDocumentViewer1);
             this.Controls.Add(this.panel3);

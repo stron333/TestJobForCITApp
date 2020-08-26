@@ -55,8 +55,9 @@
             // 
             // печатьToolStripMenuItem
             // 
+            this.печатьToolStripMenuItem.BackColor = System.Drawing.Color.Honeydew;
             this.печатьToolStripMenuItem.Name = "печатьToolStripMenuItem";
-            this.печатьToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.печатьToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.печатьToolStripMenuItem.Text = "Печать";
             this.печатьToolStripMenuItem.Click += new System.EventHandler(this.печатьToolStripMenuItem_Click);
             // 

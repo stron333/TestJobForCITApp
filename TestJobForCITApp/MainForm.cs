@@ -227,14 +227,10 @@ namespace TestJobForCITApp
             File.WriteAllText(pathToXml, text);
 
 
-            /*this.Enabled = false;
-            FormBrowser formBrowser = new FormBrowser(new Uri(pathToXml), _listFiles.ToList());
-            formBrowser.Closing += delegate { this.Enabled = true; };
-            formBrowser.Show();*/
-            this.Enabled = false;
-            FormAwesomium formBrowser = new FormAwesomium(new Uri(pathToXml), _listFiles.ToList());
-            formBrowser.Closing += delegate { this.Enabled = true; };
-            formBrowser.Show();
+            using (FormAwesomium formBrowser = new FormAwesomium(new Uri(pathToXml), _listFiles.ToList()))
+            {
+                formBrowser.ShowDialog();
+            }
 
         }
 

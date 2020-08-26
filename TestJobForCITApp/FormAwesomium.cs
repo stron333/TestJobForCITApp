@@ -26,7 +26,7 @@ namespace TestJobForCITApp
             //удаляем временные файлы
             if (Directory.Exists(tempLocation))
                 Directory.Delete(tempLocation, true);
-            Directory.CreateDirectory(tempLocation);
+            Directory.CreateDirectory(tempLocation + "\\allInOne");
 
             //Конвертируем файлы вложений в PDF
             FileHelper fileHelper = new FileHelper();
@@ -39,8 +39,8 @@ namespace TestJobForCITApp
                 fileHelper.ConvertToPDF(sourceFilePath, contentType, fileName, tempLocation);
             }
             //Конвертируем XML в PDF
-            webControl1.PrintToFile(tempLocation, PrintConfig.Default);
             webControl1.PrintComplete += WebControl1OnPrintComplete;
+            webControl1.PrintToFile(tempLocation+"\\allInOne", PrintConfig.Default);
         }
 
 
@@ -67,8 +67,8 @@ namespace TestJobForCITApp
             //Конвертируем XML в PDF
             String[] pathsOutPdfs = Directory.GetFiles(tempLocation);
             List<PdfDocument> OutPdfs = new List<PdfDocument>();
-            PdfDocument AllInOnePdf = new PdfDocument(pathsOutPdfs[0]);
-            for (int i = 1; i < pathsOutPdfs.Length; i++)
+            PdfDocument AllInOnePdf = new PdfDocument(Directory.GetFiles(tempLocation + "\\allInOne")[0]);
+            for (int i = 0; i < pathsOutPdfs.Length; i++)
             {
                 OutPdfs.Add(new PdfDocument(pathsOutPdfs[i]));
             }
@@ -76,7 +76,6 @@ namespace TestJobForCITApp
             {
                 AllInOnePdf.AppendPage(OutPdfs[i]);
             }
-
             return AllInOnePdf;
         }
     }

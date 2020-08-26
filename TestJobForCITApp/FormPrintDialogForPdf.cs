@@ -205,12 +205,13 @@ namespace TestJobForCITApp
 
         private void предварительынйПросмотрToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int countOfPage = Convert.ToInt32(_document.PrintSettings.PrintToPage
-                               - _document.PrintSettings.PrintFromPage
-                               + 1)
-                              / ((int)numericUpDownRows.Value*(int)numericUpDownColumns.Value);
-            FormPrintPreview formPrintPreview = new FormPrintPreview(_document, countOfPage);
-            formPrintPreview.ShowDialog();
+            int countOfPage = (int)Math.Ceiling(
+                (_document.PrintSettings.PrintToPage - _document.PrintSettings.PrintFromPage + 1)
+                / (double)((int)numericUpDownRows.Value*(int)numericUpDownColumns.Value));
+            using (FormPrintPreview formPrintPreview = new FormPrintPreview(_document, countOfPage))
+            {
+                formPrintPreview.ShowDialog();
+            }
         }
 
         
