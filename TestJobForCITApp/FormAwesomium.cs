@@ -97,7 +97,19 @@ namespace TestJobForCITApp
             // получаем выбранный файл
             string filename = dialog.FileName;
             _AllInOnePdf.SaveToFile(filename);
+        }
 
+        
+        private void сохранитьXMLToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            using (var path_dialog = new FolderBrowserDialog())
+                if (path_dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    File.Copy(_uri.AbsolutePath, 
+                        path_dialog.SelectedPath+"\\output.xml", true);
+                    File.Copy(Directory.GetCurrentDirectory()+"\\style.css", 
+                        path_dialog.SelectedPath + "\\style.css", true);
+                };
         }
     }
 }

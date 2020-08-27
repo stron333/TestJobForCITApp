@@ -32,8 +32,9 @@
             this.webControl1 = new Awesomium.Windows.Forms.WebControl(this.components);
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.печатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.сохранитьВPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
+            this.сохранитьXMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +49,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.печатьToolStripMenuItem,
-            this.сохранитьВPDFToolStripMenuItem});
+            this.сохранитьВPDFToolStripMenuItem,
+            this.сохранитьXMLToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -63,16 +65,23 @@
             this.печатьToolStripMenuItem.Text = "Печать";
             this.печатьToolStripMenuItem.Click += new System.EventHandler(this.печатьToolStripMenuItem_Click);
             // 
-            // printDialog1
-            // 
-            this.printDialog1.UseEXDialog = true;
-            // 
             // сохранитьВPDFToolStripMenuItem
             // 
             this.сохранитьВPDFToolStripMenuItem.Name = "сохранитьВPDFToolStripMenuItem";
             this.сохранитьВPDFToolStripMenuItem.Size = new System.Drawing.Size(110, 20);
             this.сохранитьВPDFToolStripMenuItem.Text = "Сохранить в PDF";
             this.сохранитьВPDFToolStripMenuItem.Click += new System.EventHandler(this.сохранитьВPDFToolStripMenuItem_Click);
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
+            // сохранитьXMLToolStripMenuItem
+            // 
+            this.сохранитьXMLToolStripMenuItem.Name = "сохранитьXMLToolStripMenuItem";
+            this.сохранитьXMLToolStripMenuItem.Size = new System.Drawing.Size(104, 20);
+            this.сохранитьXMLToolStripMenuItem.Text = "Сохранить XML";
+            this.сохранитьXMLToolStripMenuItem.Click += new System.EventHandler(this.сохранитьXMLToolStripMenuItem_Click_1);
             // 
             // FormAwesomium
             // 
@@ -98,5 +107,6 @@
         private System.Windows.Forms.ToolStripMenuItem печатьToolStripMenuItem;
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.ToolStripMenuItem сохранитьВPDFToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьXMLToolStripMenuItem;
     }
 }
