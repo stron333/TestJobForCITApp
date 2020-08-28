@@ -3,8 +3,10 @@ using System.ComponentModel;
 using System.Data;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Xml.Serialization;
+using System.Reflection;
 
 namespace TestJobForCITApp
 {
@@ -218,22 +220,46 @@ namespace TestJobForCITApp
             {
                 formatter.Serialize(fs, classForPrinting);
             }
-                
-            File.AppendAllText(pathToXml, 
-                Environment.NewLine + @"<?xml-stylesheet type=""text/css"" href=""style.css""?>");
+
+            
             string text = File.ReadAllText(pathToXml);
             text = text.Replace("&lt;", "<");
             text = text.Replace("&gt;", ">"); 
             File.WriteAllText(pathToXml, text);
+            ReplaceInFile(pathToXml, @"xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance""",
+                @"xmlns=""http://www.w3.org/1999/xhtml""");
 
-
+            string css;
+            var assembly = Assembly.GetExecutingAssembly();
+            var resourceName = "TestJobForCITApp.style.css";
+            using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                css = reader.ReadToEnd();
+            }
+            ReplaceInFile(pathToXml, "</ClassForPrinting>", 
+                "<style>"+Environment.NewLine+
+                css + Environment.NewLine + 
+                "</style>" + Environment.NewLine + 
+                "</ClassForPrinting>");
             using (FormAwesomium formBrowser = new FormAwesomium(new Uri(pathToXml), _listFiles.ToList()))
             {
                 formBrowser.ShowDialog();
             }
 
         }
+        private void ReplaceInFile(string filePath, string searchText, string replaceText)
+        {
+            StreamReader reader = new StreamReader(filePath);
+            string content = reader.ReadToEnd();
+            reader.Close();
 
+            content = Regex.Replace(content, searchText, replaceText);
+
+            StreamWriter writer = new StreamWriter(filePath);
+            writer.Write(content);
+            writer.Close();
+        }
 
         private ListFields FillListField()
         {
