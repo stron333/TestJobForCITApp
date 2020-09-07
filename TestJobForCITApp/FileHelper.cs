@@ -7,6 +7,8 @@ using System.Drawing;
 using System.IO;
 using System.Threading;
 using Spire.Doc;
+using Spire.Xls;
+using Spire.Xls.Converter;
 using FileFormat = Spire.Xls.FileFormat;
 
 namespace TestJobForCITApp

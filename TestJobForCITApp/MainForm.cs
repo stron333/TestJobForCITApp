@@ -303,9 +303,10 @@ namespace TestJobForCITApp
             textBoxField10.Text = "Текст в поле 10";
         }
 
-        
-        
-        
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            ModifyInMemory.ActivateMemoryPatching();
+        }
     }
 
     
